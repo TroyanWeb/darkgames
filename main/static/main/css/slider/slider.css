@@ -1,0 +1,38 @@
+/* swiper-bullets styling */
+.swiper-container{
+    width: 90%;
+    margin: 0 auto;
+    height: 520px;
+}
+
+.swiper-slide-price{
+    position: absolute;
+}
+
+.swiper-slide-price-item{
+    justify-content: space-around;
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    margin: 0 15px;
+    background-color: #747474;
+    opacity: 1;
+    transition: all 0.15s ease-in-out;
+}
+
+.swiper-pagination-bullet:hover {
+    background-color: #ffffff;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #ffffff;
+}
+
+.swiper-container {
+    padding-bottom: 2.4em;
+}
+
+
+

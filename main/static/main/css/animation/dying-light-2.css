@@ -1,0 +1,13 @@
+.two {
+    animation: fillRed 4s ease-in-out forwards;
+    font-size: 1.3rem;
+}
+
+@keyframes fillRed {
+    0% {
+        color: #03070b;
+    }
+    100% {
+        color: #fb0106; /* крова-красный цвет */
+    }
+}

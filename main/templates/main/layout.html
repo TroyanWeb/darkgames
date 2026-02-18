@@ -1,0 +1,183 @@
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    {% block head %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="header-logo">
+                    <div class="logo-DarkGames">
+                        <a href="{% url 'index' %}" class="logo">
+                            <img src="{% static 'main/img/structure/logo.png' %}" alt="DarkGames">
+                        </a>
+                    </div>
+                </div>
+                <nav class="header-razdels">
+                    <a href="{% url 'reviews' %}">Отзывы</a>
+                    <a href="{% url 'guarantees' %}">Гарантии</a>
+                    <a href="https://t.me/TroyanWeb">Поддержка</a>
+                </nav>
+                <a href="{% url 'principles' %}" class="header-principles"><div>Наши принципы</div></a>
+            </div>
+        </div>
+    </header>
+    <div id="bar" class="bar">
+        <div class="bar-inner">
+            <button class="menu" id="menu" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
+                <svg width="5.5em" viewBox="0 0 100 100" class="menu-icon" id="menu-icon"  alt="Меню">
+                    <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                    <path class="line line2" d="M 20,50 H 80" />
+                    <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                </svg>
+            </button>
+            <div class="catalog-icon">
+                <a class="catalog-icon-1" href="{% url 'catalog' %}">Каталог игр</a>
+                <a class="catalog-icon-2" href="{% url 'catalog' %}">Скидки</a>
+            </div>
+
+            <div class="search">
+                <div class="search-form">
+                    <input type="text" placeholder="Поиск игр" class="search-control">
+                    <button type="submit" class="search-button">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+                <div class="search-dropdown">
+                    <div class="search-true"></div>
+                    <div class="search-false"></div>
+                </div>
+                <script src="{% static 'main/js/search.js' %}"></script>
+            </div>
+            <div id="cart-trigger" class="cart-trigger">
+                <a href="{% url 'cart' %}">
+                    <img id="cart-icon" src="{% static 'main/img/structure/cart-0.svg' %}" height="3em" alt="Cart" style="height: 45px;">
+                </a>
+                <div class="cart_head">
+                    <div class="cart_head_num" style="display: none;">{{ request.session.cart|length }}</div>
+                </div>
+            </div>
+
+
+
+            <div class="profile">
+                <!-- Кнопка для открытия панели личного кабинета -->
+                <img src="{% static 'main/img/structure/profile.svg' %}" alt="Личный кабинет" id="personal-cabinet-button">
+
+                <!-- Панель личного кабинета -->
+                <div id="personal-cabinet-panel">
+                    <div class="toggle-buttons">
+                        <span>
+                            Авторизация
+                        </span>
+                    </div>
+                    <div>
+                        <span>Первые 100 зарегистрированных пользователей получат промокод на скидку 3% на любую покупку. Успейте!</span>
+                    </div>
+                    <div id="login-form">
+                        <button class="vk-authentication">
+                            <img src="{% static 'main/img/structure/vk-authentication.svg' %}">
+                            <span>Войти через VK</span>
+                        </button>
+                        <button class="yandex-authentication">
+                            <img src="{% static 'main/img/structure/yandex-authentication.svg' %}">
+                            <span>Войти через Яндекс</span>
+                        </button>
+                        <button class="telegram-authentication">
+                            <img src="{% static 'main/img/structure/telegram-authentication.svg' %}">
+                            <span>Войти через Telegram</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Затемненный фон -->
+                <div id="overlay"></div>
+            </div>
+        </div>
+        {% block bar %}
+        {% endblock %}
+    </div>
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
+    <footer>
+        <div class="container-footer">
+            <div class="advantages">
+                <div class="advantages-item">
+                    <div class="advantages-item-icon">
+                        <img src="{% static 'main/img/structure/low-price.svg' %}" alt="Лицензионные товары">
+                    </div>
+                    <div class="advantages-item-text">
+                        Низкие цены
+                    </div>
+                </div>
+                <div class="advantages-item">
+                    <div class="advantages-item-icon">
+                        <img src="{% static 'main/img/structure/support.svg' %}" alt="Тех поддержка">
+                    </div>
+                    <div class="advantages-item-text">
+                        Круглосуточная техподдержка
+                    </div>
+                </div>
+                <div class="advantages-item">
+                    <div class="advantages-item-icon">
+                        <img src="{% static 'main/img/structure/Officially.svg' %}" alt="Официально">
+                    </div>
+                    <div class="advantages-item-text">
+                        Официально
+                    </div>
+                </div>
+                <div class="advantages-item">
+                    <div class="advantages-item-icon">
+                        <img src="{% static 'main/img/structure/no-fictitious-discounts.svg' %}" alt="Без фиктивных скидок">
+                    </div>
+                    <div class="advantages-item-text">
+                        <span>Без фиктивных скидок</span>
+                        <img class="advantages-item-text-icon-footer-4" src="{% static 'main/img/structure/reference-icon.svg' %}">
+                    </div>
+                    <div class="reference-footer-4">
+                        <span>
+                            На нашем сайте представлена информация о реальных скидках и акциях, без использования маркетинговых трюков и завышенных цен для создания впечатления о большой выгоде.<br><br> Мы стремимся предоставлять честную информацию о наших товарах и услугах, чтобы наши клиенты могли делать осознанный выбор и быть уверены в том, что они получают реальный товар по справедливой цене.
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="payment-system">
+                <img class="payment-system-img" src="{% static 'main/img/structure/visa.svg' %}" style="height:30px;">
+                <img class="payment-system-img" src="{% static 'main/img/structure/mastercard.svg' %}" style="height:50px;">
+                <img class="payment-system-img" src="{% static 'main/img/structure/mir-logo.svg' %}" style="height:30px;">
+            </div>
+        </div>
+        <div class="nav-list">
+            <div class="nav-item">
+                <a href="#">Возврат</a>
+            </div>
+            <div class="nav-item">
+                <a href="{% url 'agreement' %}">Соглашение</a>
+            </div>
+            <div class="nav-item">
+                <a href="{% url 'privacy-policy' %}">Конфидециальность</a>
+            </div>
+            <div class="nav-item">
+                <a href="{% url 'about' %}">О нас</a>
+            </div>
+            <a class="license" rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+                <img class="license-img" alt="Creative Commons License" style="border: 1px solid #8b8b8b8f"
+                     src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"/>
+            </a>
+        </div>
+    </footer>
+    <script src="{% static 'main/js/script.js' %}"></script>
+    <script src="https://kit.fontawesome.com/4c92ee7490.js" crossorigin="anonymous"></script>
+    {% block scripts_end %}
+    {% endblock %}
+</body>
+</html>

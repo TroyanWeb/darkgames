@@ -1,0 +1,322 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block bar %}
+    <div class="menu-content" id="menu-content">
+        <div class="menu-content-container">
+            <div class="menu-content-sections-catalog">
+                <div class="menu-content-item" id="menu-content-item-new" data-url="{% url 'index' %}#zagalovok-new">Новинки</div>
+                <div class="menu-content-item" id="menu-content-item-popular" data-url="{% url 'index' %}#zagalovok-popular">Наш выбор</div>
+                <div class="menu-content-item" id="menu-content-item-editors-choice" data-url="{% url 'index' %}#zagalovok-editors-choice">Популярное</div>
+            </div>
+        </div>
+    </div>
+    <div class="menu-content-index-mobile" id="menu-content-mobile">
+        <div class="menu-content-mobile-container">
+            <div class="menu-content-mobile-sections">
+                <div class="sidebar" id="sidebar">
+                    <div class="sidebar-container">
+                        <div class="sidebar-item">
+                            <a href="{% url 'catalog' %}">
+                                <span class="sidebar-item-title">
+                                    Весь каталог
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Популярное
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Новинки
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Выбор редакции
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="{% url 'reviews' %}">
+                                <span class="sidebar-item-title">
+                                    Отзывы
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="catalog-section" style="min-height: 55em;background: linear-gradient(to top, rgb(207 202 202), rgb(94 94 94), rgb(0, 0, 0))">
+        <div class="catalog-container">
+            <div class="catalog-left">
+                <div class="catalog-title">
+                    <span>Каталог</span>
+                </div>
+                <form action="" method="get" class="filters">
+                    <div class="filters-container">
+                        <div class="filters-item-container" id="filters-item-container-1" data-target="filters-item-body-1">
+                            <div class="filters-item">
+                                <span class="filters-item-title">Цена</span>
+                                <img class="filters-item-arrow" src="{% static 'main/img/structure/arrow-filter.svg' %}">
+                            </div>
+                            <div class="filters-item-body" id="filters-item-body-1">
+                                <div class="price-range-slider"></div>
+                                <div class="price-range-slider-item">
+                                    <span id="priceValueMin"></span>
+                                    <span id="priceValueMax"></span>
+                                </div>
+                            </div>
+                            <div class="filters-item-border"></div>
+                        </div>
+                        <div class="filters-item-container" id="filters-item-container-2" data-target="filters-item-body-2">
+                            <div class="filters-item">
+                                <span class="filters-item-title">Активация</span>
+                                <img class="filters-item-arrow" src="{% static 'main/img/structure/arrow-filter.svg' %}">
+                            </div>
+                            <div class="filters-item-body" id="filters-item-body-2">
+                                <div class="filters-item-body-item">
+                                    <div>
+                                        {% for choice in ACTIVATION_CHOICES %}
+                                            <input type="checkbox" name="activation" value="{{ choice.0 }}" class="save-state-checkbox" {% if choice.0 in selected_activations %}checked{% endif %}>
+                                            <label>{{ choice.1 }}</label><br>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filters-item-border"></div>
+                        </div>
+                        <div class="filters-item-container" id="filters-item-container-3" data-target="filters-item-body-3">
+                            <div class="filters-item">
+                                <span class="filters-item-title">Жанры</span>
+                                <img class="filters-item-arrow" src="{% static 'main/img/structure/arrow-filter.svg' %}">
+                            </div>
+                            <div class="filters-item-body" id="filters-item-body-3">
+                                <div class="filters-item-body-item">
+                                    {% for genre, genre_name in GENRE_CHOICES %}
+                                        <input type="checkbox" id="{{ genre }}" name="genre" value="{{ genre }}" class="save-state-checkbox" {% if genre in selected_genres %}checked{% endif %}>
+                                        <label for="{{ genre }}">{{ genre_name }}</label><br>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="filters-item-border"></div>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-filters">Применить</button>
+                </form>
+            </div>
+            <div class="sorting-buttons-mobile">
+                <div>
+                    <span></span>
+                </div>
+                <div>
+                    <span>Фильтр</span>
+                </div>
+            </div>
+            <div class="catalog-right">
+                <form action="" method="get" class="sorting">
+                    <span class="sorting-title">Сортировать по:</span>
+                    <div class="sorting-item {% if not request.GET.sort or request.GET.sort == 'popularity' %}active{% endif %}">
+                        <a href="/catalog" class="sorting-link">Популярности</a>
+                    </div>
+                    <div class="sorting-item {% if sort_param == 'price' %}active{% endif %}">
+                        <a href="?sort=price{% if request.session.price_order == 'descending' %}&direction=desc{% endif %}" class="sorting-link">
+                            Цена
+                            {% if sort_param == 'price' %}
+                                {% if request.session.price_order == 'descending' %}
+                                    <img class="sorting-item-icon" src="{% static 'main/img/structure/sorting-increasing.png' %}">
+                                {% else %}
+                                    <img class="sorting-item-icon" src="{% static 'main/img/structure/sorting-decreasing.png' %}">
+                                    {% endif %}
+                            {% endif %}
+                        </a>
+                    </div>
+                        <div class="sorting-item {% if sort_param == 'release_date' %}active{% endif %}">
+                            <a href="?sort=release_date{% if request.session.release_date_order == 'descending' %}&direction=desc{% endif %}" class="sorting-link">
+                                Новизне
+                                {% if sort_param == 'release_date' %}
+                                    {% if request.session.release_date_order == 'descending' %}
+                                        <img class="sorting-item-icon" src="{% static 'main/img/structure/sorting-decreasing.png' %}">
+                                    {% else %}
+                                        <img class="sorting-item-icon" src="{% static 'main/img/structure/sorting-increasing.png' %}">
+                                    {% endif %}
+                                {% endif %}
+                            </a>
+                        </div>
+                    </form>
+                <div class="games-list">
+                    {% if catalog %}
+                        {% for game in catalog %}
+                            <div class="game-item">
+                                <a class="catalog-item" href="{% url 'games-detail' game.slug %}">
+                                    <div class="game-img">
+                                        <img src="{{ game.catalog_image.url }}">
+                                    </div>
+                                    <div class="game-name">{{ game.title }}
+                                        <div class="catalog-item__info">
+                                            <div class="game-activation">
+                                                {% if game.activation == 'Steam' %}
+                                                    <img class="game-icon" src="{% static 'main/img/structure/steam-icon.svg' %}" alt="{{ el.title }}">
+                                                {% elif game.activation == 'EA' %}
+                                                    <img class="game-icon" src="{% static 'main/img/structure/ea-icon.svg' %}" alt="{{ el.title }}">
+                                                {% elif game.activation == 'Ubisoft' %}
+                                                    <img class="game-icon" src="{% static 'main/img/structure/ubisoft-icon.svg' %}" alt="{{ el.title }}">
+                                                {% elif game.activation == 'GOG' %}
+                                                    <img class="game-icon" src="{% static 'main/img/structure/gog-icon.svg' %}" alt="{{ el.title }}">
+                                                {% elif game.activation == 'Rockstar' %}
+                                                    <img class="game-icon" src="{% static 'main/img/structure/rockstar-games-launcher-icon.svg' %}" alt="{{ el.title }}">
+                                                {% elif game.activation == 'Epic Games' %}
+                                                    <img class="game-icon" src="{% static 'main/img/structure/epic-games-icon.svg' %}" alt="{{ el.title }}">
+                                                {% elif game.activation == 'Microsoft Store' %}
+                                                    <img class="game-icon" src="{% static 'main/img/structure/microsoft-store-icon.svg' %}" alt="{{ el.title }}">
+                                                {% elif game.activation == 'VK Play' %}
+                                                    <img class="game-icon" src="{% static 'main/img/structure/vk-play-icon.svg' %}" alt="{{ el.title }}">
+                                                {% endif %}
+                                                <div>{{ game.get_activation_display }}</div>
+                                            </div>
+                                            <div class="game-genres">
+                                                <span class="game-genres-item-1">
+                                                    {% if game.genre == 'action' %}
+                                                        Экшен
+                                                    {% elif game.genre == 'shooter' %}
+                                                        Шутер
+                                                    {% elif game.genre == 'strategy' %}
+                                                        Стратегия
+                                                    {% elif game.genre == 'indie' %}
+                                                        Инди
+                                                    {% elif game.genre == 'adventure' %}
+                                                        Приключение
+                                                    {% elif game.genre == 'simulator' %}
+                                                        Симулятор
+                                                    {% elif game.genre == 'role-playing' %}
+                                                        Ролевая игра
+                                                    {% elif game.genre == 'fighting' %}
+                                                        Файтинг
+                                                    {% elif game.genre == 'sandbox' %}
+                                                        Песочница
+                                                    {% elif game.genre == 'rpg' %}
+                                                        RPG
+                                                    {% elif game.genre == 'survival' %}
+                                                        Выживание
+                                                    {% elif game.genre == 'horror' %}
+                                                        Хоррор
+                                                    {% elif game.genre == 'casual' %}
+                                                        Казуальная
+                                                    {% endif %}
+                                                </span>
+                                                <span class="game-genres-item-2">
+                                                    {% if game.genre_1 == 'action' %}
+                                                        | Экшен
+                                                    {% elif game.genre_1 == 'shooter' %}
+                                                        | Шутер
+                                                    {% elif game.genre_1 == 'strategy' %}
+                                                        | Стратегия
+                                                    {% elif game.genre_1 == 'indie' %}
+                                                        | Инди
+                                                    {% elif game.genre_1 == 'adventure' %}
+                                                        | Приключение
+                                                    {% elif game.genre_1 == 'simulator' %}
+                                                        | Симулятор
+                                                    {% elif game.genre_1 == 'role-playing' %}
+                                                        | Ролевая игра
+                                                    {% elif game.genre_1 == 'fighting' %}
+                                                        | Файтинг
+                                                    {% elif game.genre_1 == 'sandbox' %}
+                                                        | Песочница
+                                                    {% elif game.genre_1 == 'rpg' %}
+                                                        | RPG
+                                                    {% elif game.genre_1 == 'survival' %}
+                                                        | Выживание
+                                                    {% elif game.genre_1 == 'horror' %}
+                                                        | Хоррор
+                                                    {% elif game.genre_1 == 'casual' %}
+                                                        | Казуальная
+                                                    {% endif %}
+                                                </span>
+                                                <span class="game-genres-item-3">
+                                                    {% if game.genre_2 == 'action' %}
+                                                        | Экшен
+                                                    {% elif game.genre_2 == 'shooter' %}
+                                                        | Шутер
+                                                    {% elif game.genre_2 == 'strategy' %}
+                                                        | Стратегия
+                                                    {% elif game.genre_2 == 'indie' %}
+                                                        | Инди
+                                                    {% elif game.genre_2 == 'adventure' %}
+                                                        | Приключение
+                                                    {% elif game.genre_2 == 'simulator' %}
+                                                        | Симулятор
+                                                    {% elif game.genre_2 == 'role-playing' %}
+                                                        | Ролевая игра
+                                                    {% elif game.genre_2 == 'fighting' %}
+                                                        | Файтинг
+                                                    {% elif game.genre_2 == 'sandbox' %}
+                                                        | Песочница
+                                                    {% elif game.genre_2 == 'rpg' %}
+                                                        | RPG
+                                                    {% elif game.genre_2 == 'survival' %}
+                                                        | Выживание
+                                                    {% elif game.genre_2 == 'horror' %}
+                                                        | Хоррор
+                                                    {% elif game.genre_2 == 'casual' %}
+                                                        | Казуальная
+                                                    {% endif %}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="game-price">
+                                        <span class="game-price-span">{{ game.price }}₽</span>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    {% if not catalog %}
+                    <style>
+                        .pagination {
+                            display: none;
+                        }
+                        .nothing {
+                            display: block;
+                        }
+                    </style>
+                {% endif %}
+                </div>
+                <div class="pagination">
+                    <div class="pagination-container">
+                        <button class="pagination-item">
+                            <span>Показать ещё</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="nothing">
+                    <div class="nothing-container">
+                        <span class="nothing-item" >Ничего не найдено</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts_end %}
+    <link rel="stylesheet" href="{% static 'main/css/jquery-ui.css' %}">
+    <script src="{% static 'main/js/code.jquery.com_jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'main/js/script.js' %}"></script>
+    <script src="{% static 'main/js/sort.js' %}"></script>
+    <script src="{% static 'main/js/jquery-ui.js' %}"></script>
+{% endblock %}
+

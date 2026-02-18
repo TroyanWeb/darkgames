@@ -1,0 +1,3386 @@
+body {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+}
+
+header {
+    z-index: 5;
+    height: auto;
+    width: 100%;
+    background-color: #0c0c0c;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+    flex-direction: inherit;
+    position: relative;
+}
+
+.logo-DarkGames {
+    color: white;
+}
+
+.logo img {
+    height: 40px;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0; /* Начальное состояние анимации: полная прозрачность */
+    }
+    100% {
+        opacity: 1; /* Конечное состояние анимации: полная непрозрачность */
+    }
+}
+
+footer, main, nav {
+    display: block;
+}
+
+
+nav {
+    display: flex;
+    margin-right: 3.5em;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+.container {
+    width: auto;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 3.3em;
+    padding-left: 4em;
+}
+
+@media (max-width: 960px) {
+    .header-logo {
+        padding: 0;
+    }
+}
+
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+.zagalovok {
+    margin: 1em 0 1em 0;
+    text-align: center;
+}
+
+.zagalovok-2 {
+    margin: 25px 0;
+    font-size: 24px;
+    text-align: center;
+    color: white;
+}
+
+.featured-games, .new-games {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: row;
+
+}
+
+
+section {
+    margin: 0 48px;
+}
+
+
+.game {
+    width: auto;
+    text-align: center;
+    margin: 12px 12px;
+    z-index: 5;
+}
+
+
+.game h3 {
+    margin: 10px 0;
+}
+
+.bar {
+    width: 100%;
+    z-index: 11;
+    height: 4em;
+    background-color: #222222;
+    top: 0;
+    box-sizing: inherit;
+    flex-direction: column;
+    position: relative;
+}
+
+
+.bar-inner {
+    height: 100%;
+    margin: 0 10em 0 10em;
+    width: auto;
+    align-items: center;
+    display: flex;
+}
+
+/* Стили для пунктов меню */
+.menu-item {
+    margin-bottom: 10px; /* Отступ между пунктами */
+}
+
+/* Стили для открытого меню */
+.menu-open {
+    max-height: 400px; /* Высота меню при открытии */
+}
+
+.catalog-icon {
+    padding: 0 0 0 1em;
+    opacity: 1;
+    font-size: 18px;
+    transition: all 0.2s ease-in-out;
+}
+
+.catalog-icon a {
+    text-decoration: none;
+    color: white;
+    margin-left: 50px;
+    transition: all 0.2s ease-in-out;
+}
+
+
+@media only screen and (max-width: 1580px) {
+    .catalog-icon-2 {
+        display: none;
+    }
+}
+
+
+@media only screen and (max-width: 1280px) {
+    .catalog-icon {
+        display: none;
+    }
+}
+
+.catalog-icon-1:hover {
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+.catalog-icon-2:hover {
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+.search {
+    width: 27em;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+    position: relative;
+    display: inline-block;
+}
+
+.search-form {
+    margin: 0;
+}
+
+.search input[type="text"] {
+    padding-right: 30px; /* Добавляем отступ справа для иконки */
+    outline: none;
+}
+
+/* Стили для placeholder текста */
+.search input[type="text"]::placeholder {
+    font-size: 15px; /* Здесь задайте желаемый размер шрифта */
+    color: #999; /* Цвет placeholder текста */
+    text-transform: none;
+}
+
+
+.search button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.search button i {
+    font-size: 20px; /* Размер иконки */
+    color: #888; /* Цвет иконки */
+    transition: all 0.3s ease-in-out;
+}
+
+.search button i:hover {
+    color: #000;
+    transition: all 0.2s ease-in-out;
+}
+
+.search-control {
+    font-size: 14px;
+    font-weight: 700;
+    width: 100%;
+    height: 36px;
+    padding: 1px 70px 0 18px;
+    color: #000000;
+    border: 0;
+    border-radius: 30px;
+    background-color: #ffffff;
+}
+
+.search-button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    padding: 9px 13px;
+    margin-left: 5px;
+}
+
+.search-dropdown {
+    background-color: #ffffff;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    top: 3.1em;
+    display: none;
+    box-shadow: 0 0 1em 0 rgb(0 0 0 / 57%);
+}
+
+.search-sell {
+    font-size: 1em;
+    margin-left: auto;
+    color: #565656;
+    transition: all 0.3s ease;
+}
+
+.search-item {
+    align-items: center;
+    padding: 1em;
+    display: flex;
+    transition: all 0.3s ease;
+}
+
+.search-title {
+    padding: 0 3em 0 1em;
+    display: block; /* Каждая ссылка занимает всю строку */
+    color: #565656; /* Наследуем цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.search-item:hover .search-title,
+.search-item:hover .search-sell {
+    color: black; /* Изменение цвета на черный при наведении */
+}
+
+.search-item:hover .search-game-img img {
+    box-shadow: 0 0 1em 0 rgb(0 0 0);
+}
+
+
+.search-game-img img{
+    width: 6em;
+    height: 3em;
+    border-radius: 1em;
+    transition: all 0.3s ease;
+}
+
+.game-info {
+    width: 24%;
+    margin-right: 4%;
+    height: auto;
+}
+
+/* Основной стиль для иконки */
+.profile img {
+    color: white;
+    border: none;
+    padding-left: 2px;
+    cursor: pointer;
+    opacity: 1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Анимация пульсации */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Применение анимации при наведении на иконку */
+.profile img:hover {
+    animation: pulse 1s infinite;
+}
+
+
+
+.telegram-authentication img{
+    width: 1.8em;
+    padding-right: 5px;
+}
+
+.vk-authentication img{
+    width: 1.8em;
+    padding-right: 5px;
+}
+
+.yandex-authentication img{
+    width: 1.8em;
+    padding-right: 5px;
+}
+
+.toggle-buttons {
+    font-size: 25px;
+    margin-bottom: 1em;
+    display: flex;
+}
+
+.toggle-buttons button {
+    color: white;
+    background-color: #000;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.toggle-buttons button.active {
+    background-color: #fff;
+    color: black;
+}
+
+/* Скрыть панель личного кабинета и затемненный фон */
+#personal-cabinet-panel, #overlay {
+    display: none;
+}
+
+/* Отобразить затемненный фон на весь экран */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* полупрозрачный черный цвет */
+    z-index: 1;
+    transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+}
+
+/* Отобразить панель личного кабинета по центру экрана */
+#personal-cabinet-panel {
+    padding: 1.5em 2em;
+    border-radius: 15px;
+    position: fixed;
+    width: 25em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 500px;
+    background-color: #fff; /* белый цвет */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* тень */
+    z-index: 100;
+    transition: opacity 0.8s ease-out, visibility 0.8s ease-out, transform 0.8s ease-out;
+}
+
+#personal-cabinet-panel.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Стили для формы в панели личного кабинета */
+#personal-cabinet-panel form {
+    display: flex;
+    flex-direction: column;
+}
+
+#personal-cabinet-panel-label {
+    font-size: 20px;
+}
+
+
+
+.personal-cabinet-panel-label-1 {
+    font-size: 19px;
+    align-items: center;
+    padding: 0 0 0 5px;
+}
+
+
+#register-form button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    background-color: #000000;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+}
+
+
+#register-form {
+    padding: 27px;
+}
+
+#login-form {
+    padding: 0 3em;
+}
+
+#login-form button {
+    height: 2.5em;
+    margin-top: 20px;
+    padding: 5px 10px 5px 25px;
+    width: 100%;
+    font-size: 19px;
+    cursor: pointer;
+    border: none;
+    background-color: #1b1d1e;
+    border-radius: 15px;
+    color: white;
+    text-align: left;
+    transition: filter 0.2s ease-in-out;
+}
+
+#login-form button:hover {
+    filter: brightness(80%);
+    transition: filter 0.2s ease-in-out;
+}
+
+#personal-cabinet-panel .register-btn {
+    margin-top: 10px;
+}
+
+/* Стили для кнопки открытия панели личного кабинета */
+#personal-cabinet-button {
+    height: 55px;
+    cursor: pointer;
+}
+
+#personal-cabinet-button:hover {
+ opacity: 0.85;
+}
+
+.title-panel {
+    text-align: center;
+}
+
+#login-btn {
+    border-radius: 14px 0 0 0;
+    padding: 15px 15px 15px 15px;
+    width: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+}
+
+
+#register-btn {
+    border-radius: 0 14px 0 0;
+    padding: 15px 15px 15px 15px;
+    width: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+}
+
+.Check-mark {
+    width: 20px;
+}
+
+.Additionally {
+    justify-content: initial;
+    display: flex;
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 389px){
+    .header-razdels{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .header-razdels, .header-principles{
+        display: none;
+    }
+    .header-inner{
+        justify-content: center;
+    }
+
+}
+
+@media only screen and (max-width: 1134px){
+    .header-principles{
+        display: none;
+    }
+}
+
+.header-razdels a {
+    font-size: 18px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    animation: fade-in 0.5s;
+}
+
+.header-razdels a:hover {
+    opacity: 0.7;
+}
+
+
+.search__setings {
+    font-size: 12px;
+    font-weight: 700;
+    display: block;
+    width: 100%;
+    height: 36px;
+    padding: 1px 36px 0 12px;
+    text-transform: uppercase;
+    color: #babcc0;
+    border: 0;
+    background-color: #51555a;
+}
+
+
+/* Слайдер */
+.wrapper1 {
+    background: #1b1d20;
+    font-family: 'Roboto', sans-serif;
+    height: 38em;
+    padding-top: 30px;
+}
+
+
+/* Нижняя часть сайта */
+
+footer {
+    background-color: #0c0c0c;
+    color: white;
+    text-align: center;
+    padding: 45px;
+    position: relative; /* позиционирование элемента */
+    z-index: 1; /* задание z-индекса элемента */
+}
+
+
+.container-footer {
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: #ededed;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header-soc img {
+    height: 50px;
+    margin: 0 10px;
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+    animation: fade-in 0.5s;
+}
+
+.header-soc img:hover {
+    opacity: 0.7;
+}
+
+.header-principles {
+    color: #000000;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #eeeeee;
+    border: 2px solid #000000;
+    border-radius: 25px;
+    padding: 0.3em 1em;
+    margin-right: 2.7em;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-principles::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0) 70%);
+    transform: rotate(25deg);
+    animation: shine 2.5s infinite;
+}
+
+.header-principles a {
+    color: black;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(25deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(25deg);
+    }
+}
+
+.cart-trigger {
+    padding: 8px 15px 9px 15px;
+    margin-right: auto;
+    position: relative;
+}
+
+.cart-trigger img, .cart_head_num {
+    cursor: pointer;
+}
+
+.cart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #000000;
+}
+
+.cart_head {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-30%, -80%);
+    text-align: center;
+}
+
+.cart_head_num {
+    display: none;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    padding-left: 0.4px;
+    color: #000;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.cart_head_num.visible {
+    display: block; /* Показываем счётчик только через JS */
+}
+
+
+
+.cart_body {
+    position: absolute;
+    z-index: 100;
+    top: 30px;
+    right: -180px;
+    display: none;
+    width: 300px;
+    border-top: 2px solid #333333;
+    padding: 5px 25px 15px 25px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 7.5px 2.5px rgb(0 0 0 / 20%);
+    box-shadow: 0 0 7.5px 2.5px rgb(0 0 0 / 20%);
+    border-radius: 2px;
+}
+
+.cart-page {
+    padding: 5em 10em 8em 19em;
+    background-color: #0c0c0c;
+}
+
+.cart-page-container {
+    display: flex;
+    height: auto;
+    background-color: #ffffff;
+    flex-direction: column;
+    min-height: 23em;
+    border-radius: 1em;
+    padding: 1em 3em 3em 3em;
+}
+
+#cart-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Устанавливаем 3 колонки одинаковой ширины */
+    gap: 10px; /* Расстояние между элементами */
+    list-style-type: none;
+    flex-grow: 1; /* Список товаров занимает всё доступное пространство */
+    overflow-y: auto; /* Если товаров много, появляется скролл */
+    padding: 5px 0;
+}
+
+
+.cart-item-image img {
+    width: 180px;
+    height: 90px;
+    border: 1px solid #0000001f;
+    border-radius: 10px;
+}
+
+
+.cart-item {
+    padding: 1em;
+    border-radius: 1em;
+    display: flex;
+    width: auto;
+    margin: 8px;
+    position: relative;
+    background-color: #f1f1f1;
+    border-image: linear-gradient(to right, rgba(0, 0, 0, 0.15), rgba(255, 255, 255, 0)) 1;
+}
+
+.cart-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+}
+
+.cart-item-title {
+    padding-top: 5px;
+    font-size: 19px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* Ограничение на 2 строки */
+    overflow: hidden; /* Обрезаем текст, если он не помещается */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    line-height: 1.2em;
+    margin-bottom: auto; /* Отталкиваем цену вниз */
+}
+
+.cart-item-price {
+    font-size: 19px;
+    margin-top: auto;
+    white-space: nowrap;
+}
+
+.cart-item-remove {
+    position: absolute; /* Позиционируем относительно cart-item */
+    top: 3px; /* Отступ сверху */
+    right: 3px; /* Отступ справа */
+    height: 1em;
+    background: none; /* Убираем стандартный фон кнопки */
+    border: none; /* Убираем стандартные рамки */
+    font-size: 20px; /* Размер крестика */
+    color: #c1c1c1; /* Цвет крестика */
+    cursor: pointer; /* Курсор в виде руки */
+    font-weight: bold; /* Жирный текст */
+}
+
+.cart-item-remove:hover {
+    color: #000000; /* Красный цвет при наведении */
+}
+
+.cart-item-info {
+    display: flex; /* Используем Flexbox */
+    flex-direction: column; /* Элементы располагаются вертикально */
+    justify-content: space-between; /* Выравниваем содержимое по вертикали */
+    padding: 0 10px 0 1em;
+    width: 100%;
+    height: 100%; /* Растягиваем контейнер на всю высоту родителя */
+}
+
+#empty-cart-message {
+    font-size: 1.4em;
+    color: #000000bd;
+}
+
+#total-price {
+    font-size: 23px;
+}
+
+
+
+.checkout-submit {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    background-color: #000;
+    border: 2px solid #000;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    display: block; /* Изменяем display на block для выравнивания кнопки по центру */
+    width: max-content;
+}
+
+.checkout-submit:hover {
+    background-color: #fff;
+    color: #000;
+    border-color: #000;
+}
+
+.checkout-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    background-color: #000;
+    border: 2px solid #000;
+    border-radius: 15px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    display: block; /* Изменяем display на block для выравнивания кнопки по центру */
+    width: max-content;
+}
+
+.checkout-btn:hover {
+    background-color: #fff;
+    color: #000;
+    border-color: #000;
+}
+
+.checkout-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.clear-cart-btn {
+    padding: 5px 2em;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    margin-left: 5em;
+    color: #000000;
+    cursor: pointer;
+    border: 1px solid #00000030;
+    background-color: #ffffff;
+    border-radius: 2em;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    display: block;
+    width: auto;
+}
+
+.cart-page-buttons {
+    display: flex;
+    margin-top: auto;
+}
+
+.featured-games img {
+    border-radius: 4.5%;
+}
+
+img {
+    position: relative;
+    height: auto;
+    vertical-align: middle;
+    border-style: none;
+}
+
+.game img {
+    filter: grayscale(80%); /* Затухание */
+    transition: all 0.5s ease-in-out;
+}
+
+.game img:hover {
+    filter: grayscale(0%); /* Появление */
+    transition: all 0.5s ease-in-out;
+}
+
+/* Изменение внешнего вида ползунка прокрутки */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #000000;
+}
+
+.category-bastsellers {
+    display: flex;
+    justify-content: space-around; /* выравнивание по горизонтали */
+    align-items: center; /* выравнивание по вертикали */
+    margin: 0 0 50px 0;
+}
+
+.category-domestic {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.category-domestic-item-1 {
+    width: 30em;
+    padding-right: 3em;
+    padding-left: 4em;
+}
+
+.category-domestic-item-2 {
+    padding-right: 4em;
+    padding-left: 4em;
+    border-right: 1px solid #ffffff1c;
+    border-left: 1px solid #ffffff1c;
+}
+
+.img-developer {
+    height: 5em;
+    width: 11em;
+}
+
+.atomic-heart-img {
+    width: 1em;
+}
+
+.category-domestic-games {
+}
+
+.product-card {
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #00000036;
+    border-radius: 20px;
+    width: 250px;
+    background: #141111;
+    transition: all 0.5s ease-in-out;
+    justify-content: center; /* выравнивание по горизонтали */
+    height: auto;
+}
+
+.img-developer-container-atomic {
+    margin-bottom: 5em;
+    justify-content: center;
+    display: flex;
+}
+
+.img-developer-container {
+    margin-bottom: 1em;
+    justify-content: center;
+    display: flex;
+}
+
+.wrapper2 .category-bastsellers .product-card:hover {
+    box-shadow: 0 0 10px rgb(40 40 40)
+}
+
+.product-card:hover img {
+    filter: grayscale(0%); /* Появление */
+    transition: all 0.5s ease-in-out;
+}
+
+.product-card-title {
+    height: 3em;
+    text-align: center;
+    padding: 5px 10px 5px 5px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #cccccc;
+    transition: all 0.5s ease-in-out;
+    font-size: 1.05rem;
+}
+
+.add-to-cart {
+    display: none;
+    position: absolute;
+    top: 432px;
+    right: 11px;
+}
+
+.product-card-container {
+    display: block;
+}
+
+.price {
+    padding: 10px 10px 10px 15px;
+}
+
+.product-card:hover .add-to-cart {
+    display: block;
+}
+
+.add-to-cart {
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(1px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+        transition: all 0.5s ease-in-out;
+    }
+}
+
+
+.image-Games {
+    width: 100%;
+    height: 351px;
+    margin-bottom: 10px;
+    border-radius: 18px 18px 0 0;
+    filter: grayscale(80%); /* Затухание */
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: scale(1.03);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+
+.title-Games {
+    cursor: pointer;
+    padding: 0 8px;
+    color: #cccccc;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+    min-height: 44px;
+    transition: all 0.5s ease-in-out;
+    text-decoration: none;
+}
+
+.product-card .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #cccccc;
+    transition: all 0.5s ease-in-out;
+}
+
+.product-card:hover .price,
+.product-card:hover .product-card-title {
+    color: #ffffff;
+}
+
+.add-to-cart {
+    border-radius: 100%;
+    cursor: pointer;
+    margin-left: auto;
+    height: 100%;
+}
+
+.add-to-cart img {
+    width: 29px;
+    height: 29px;
+}
+
+.wrapper2 {
+    background-color: #1b1d20;
+    height: auto;
+    margin: 35px 0 0 0;
+    padding: 5px 0 2em 0;
+}
+
+.category {
+    border-top: 1px solid #ffffff1f;
+    border-bottom: 1px solid #ffffff1f;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 2em 0 2em 0;
+}
+
+.container-category {
+    max-width: 1290px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.container-category {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.container-category-item-image {
+    width: 100%;
+    height: 50px;
+}
+
+.container-category-item {
+    width: 100%;
+}
+
+.container-category-item-title {
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    margin: 60px 0 0 0;
+}
+
+.container-category__item {
+    display: block;
+    background-color: #000000;
+    padding: 1em;
+    margin: 10px;
+    border-radius: 10px;
+    transition: background-color 0.4s ease-in-out;
+    text-decoration: none;
+}
+
+.container-category__item:hover .container-category-item-title {
+    color: #000000;
+}
+
+.container-category__item img:hover {
+    background: url("/assets/images/structure/category1.2.svg");
+}
+
+.container-category__item:hover {
+    background-color: #ffffff;
+
+}
+
+.container-category-item-wrapper {
+    text-align: center;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.container-category-item-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.container-category-item-image-hover {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.container-category__item:hover .container-category-item-image {
+    display: none;
+}
+
+.container-category__item:hover .container-category-item-image-hover {
+    display: block;
+}
+
+.container-category-item-image-hover {
+    width: 100%;
+    height: 50px;
+
+}
+
+.advantages {
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.advantages-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.advantages-item-text {
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    line-height: 15px;
+    color: #fff;
+    display: flex;
+    margin-top: 8px;
+}
+
+.advantages-item-text-icon-footer-4 {
+    width: 1em;
+    transition: filter 0.2s ease-in-out;
+    filter: brightness(30%);
+    padding-left: 0.3em;
+}
+
+.advantages-item-text-icon-index-1 {
+    width: 1em;
+    transition: filter 0.2s ease-in-out;
+    filter: brightness(30%);
+    padding-bottom: 0.1em;
+    padding-left: 0.2em;
+}
+
+.advantages-item-text-icon-index-2 {
+    width: 1em;
+    transition: filter 0.2s ease-in-out;
+    filter: brightness(30%);
+    padding-bottom: 0.1em;
+    padding-left: 0.2em;
+}
+
+.advantages-item-text-icon-footer-4:hover {
+    transition: filter 0.2s ease-in-out;
+    filter: brightness(100%);
+}
+
+.advantages-item-text-icon-index-1:hover {
+    transition: filter 0.2s ease-in-out;
+    filter: brightness(100%);
+}
+
+.advantages-item-text-icon-index-2:hover {
+    transition: filter 0.2s ease-in-out;
+    filter: brightness(100%);
+}
+
+.reference-footer-4 {
+    z-index: 2;
+    font-size: 0.8em;
+    padding: 0.9em;
+    text-align: left;
+    border-radius: 10px;
+    width: 32em;
+    position: absolute;
+    background-color: #2e2e2e;
+    top: 13em;
+}
+
+.reference-index-1 {
+    z-index: 2;
+    font-size: 0.6em;
+    padding: 0.9em;
+    text-align: left;
+    border-radius: 10px;
+    width: 32em;
+    position: absolute;
+    background-color: #2e2e2e;
+    top: 101em;
+    right: 49em;
+}
+
+.reference-index-2 {
+    z-index: 2;
+    font-size: 0.6em;
+    padding: 0.9em;
+    text-align: left;
+    border-radius: 10px;
+    width: 32em;
+    position: absolute;
+    background-color: #2e2e2e;
+    top: 157em;
+    right: 50em;
+}
+
+.advantages-item-icon img {
+    width: 5em;
+    height: 3.5em;
+}
+
+.payment-system {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 75px 0 65px 0;
+    height: 30px;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+.copyright-policy{
+    margin-top: 3em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.license{
+    margin-left: auto;
+}
+
+.nav-item {
+    padding: 0 2em 3px 2em;
+    list-style: none;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.payment-system-img {
+    margin: 0 16px;
+    height: 30px;
+}
+
+.reviews-title-1 {
+    font-size: 30px;
+    margin: 0;
+}
+
+.reviews-title1 {
+    margin: 65px 75px 0 110px;
+}
+
+.reviews-title2 {
+    margin: 65px 75px 120px 110px;
+    background-color: #e1e1e1;
+}
+
+.reviews-title3 {
+    padding: 35px 0 15px 20px;
+}
+
+.agreement {
+    width: 1290px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.agreement-title {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px;
+    padding: 60px 85px 15px 0;
+}
+
+.agreement-text {
+    width: 1290px;
+    font-size: 20px;
+    padding: 0 0;
+    margin: 0 auto;
+}
+
+.guarantees {
+    width: 1290px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 7em;
+}
+
+.guarantees-title {
+    width: 1290px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px;
+    padding: 60px 85px 15px 0;
+}
+
+.guarantees-text {
+    width: 1290px;
+    font-size: 20px;
+    padding: 0 0;
+    margin: 0 auto;
+}
+
+.catalog-item {
+    position: relative;
+    transition: background-color 0.2s ease-in-out; /* Анимация для плавного перехода тени */
+    display: flex;
+    align-items: center;
+    background-color: #ffffffe3;
+    border-radius: 12px;
+    box-shadow: none; /* Изначально тень отсутствует */
+}
+
+.catalog-item:hover .game-img img {
+    transition: filter 0.2s ease-in-out;
+    filter: brightness(100%);
+}
+
+
+.catalog-item:hover {
+    transition: background-color 0.2s ease-in-out;
+    background-color: #fff;
+}
+
+.game-name {
+    padding-left: 27px;
+    padding-right: 15px;
+    vertical-align: middle;
+    color: #0a0a0a;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    font-size: 16px;
+    font-weight: 400;
+    overflow: hidden;
+    white-space: normal;
+    max-width: 430px;
+    text-overflow: ellipsis;
+    align-items: center;
+}
+
+.game-name-index {
+    padding-left: 27px;
+    padding-right: 15px;
+    vertical-align: middle;
+    color: #0a0a0a;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    font-size: 18px;
+    font-weight: 400;
+    overflow: hidden;
+    white-space: normal;
+    max-width: 430px;
+    text-overflow: ellipsis;
+    align-items: center;
+}
+
+.game-price {
+    flex: 1 auto;
+    justify-content: flex-end;
+    font-size: 19px;
+    font-weight: 700;
+    color: #000;
+    display: flex;
+    margin: 0 15px 0 0;
+}
+
+.game-img img {
+    transition: filter 0.2s ease-in-out;
+    border-radius: 10px 0 0 10px;
+    width: 180px;
+    height: 90px;
+    filter: brightness(85%) grayscale(30%);
+}
+
+.game-img-index img {
+    transition: filter 0.2s ease-in-out;
+    border-radius: 10px 0 0 10px;
+    width: 180px;
+    height: 96px;
+    min-height: 90px;
+    filter: brightness(85%);
+}
+
+.game-item {
+    margin: 6px 0;
+    position: relative;
+}
+
+.category-domestic-item-container {
+    margin-top: 1em;
+    border-bottom: 1px solid #ffffff29;
+}
+
+.category-domestic-item-container-3 {
+    margin-top: 1em;
+}
+
+.game-item-index {
+    margin: 2em 0 2em 0;
+    position: relative;
+}
+
+
+.game-activation {
+    display: flex;
+}
+
+.game-icon {
+    height: 24px;
+    margin-right: 2px;
+    width: 24px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.page-header {
+    position: relative;
+    max-width: 1236px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.catalog-title {
+    color: white;
+    width: auto;
+    font-size: 30px;
+    text-align: center;
+    margin: 7px 0 25px 0;
+
+}
+
+.catalog-container {
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    display: flex;
+    padding-top: 15px;
+}
+
+@media only screen and (min-width: 899px) {
+    .catalog-right {
+        display: block;
+    }
+}
+
+.catalog-section {
+    height: 100%;
+}
+
+.catalog-left {
+    margin-right: 3em;
+    transition: box-shadow 0.3s ease;
+    box-shadow: none;
+}
+
+.catalog-right {
+    width: 73%;
+    display: block;
+}
+
+.filters {
+    margin-bottom: 30px;
+    background-color: #b5b5b508;
+    height: auto;
+    transition: box-shadow 0.3s ease;
+    box-shadow: none;
+    border-radius: 10px;
+    padding-bottom: 2em;
+}
+
+.filters:hover {
+    transition: box-shadow 0.4s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.filters-container {
+    padding: 30px 20px 5px 30px;
+    user-select: none;
+}
+
+
+.filters-item-container {
+    font-size: 1.1em;
+    color: white;
+}
+
+.filters-item-arrow {
+    /* стили по умолчанию, когда стрелка не кручена */
+    transform: translateY(0);
+    transition: transform 0.3s ease; /* добавим плавность для анимации */
+}
+
+.rotated {
+    /* стили, когда стрелка кручена на 180 градусов */
+    transition: transform 0.3s ease; /* добавим плавность для анимации */
+    transform: translateY(0) rotate(-180deg);
+}
+
+
+.filters-item {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.filters-item-title {
+    font-size: 1.1em;
+    padding-left: 10px;
+    filter: brightness(100%);
+}
+
+.filters-item-title:hover,
+.filters-item-title:hover .filters-item-arrow {
+    filter: brightness(85%);
+}
+
+.filters-item-arrow {
+    margin-top: 9px;
+    height: 9px;
+    filter: brightness(100%);
+}
+
+.filters-item-border {
+    border-bottom: 1px solid #ffffff0d;
+    margin-bottom: 20%;
+}
+
+.filters-item-body {
+    padding: 9% 3% 4% 5%;
+    display: none;
+    width: auto;
+    height: auto;
+    position: relative;
+    animation: fadeInFilters 0.3s ease-in-out; /* Добавляем анимацию fadeIn */
+}
+
+@keyframes fadeInFilters {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.submit-filters {
+    font-size: 16px;
+    padding: 10px 25px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #d7d7d7;
+    cursor: pointer;
+    background-color: #121212;
+    border: 2px solid #0a0a0a00;
+    border-radius: 2em;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.submit-filters:hover {
+    background-color: #000000;
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
+    transition: background-color 0.5s ease, box-shadow 0.3s ease;
+}
+
+input[class="save-state-checkbox"] {
+    /* устанавливаем размеры чекбокса */
+    width: 15px;
+    height: 15px;
+    /* устанавливаем фон чекбокса */
+    background-color: #fff;
+    /* устанавливаем границу чекбокса */
+    /* устанавливаем радиус границы */
+    border-radius: 5px;
+    appearance: none;
+    margin: 3px 3px -1px 4px;
+    padding: initial;
+    border: initial;
+}
+
+input[class="save-state-checkbox"]:checked {
+    /* устанавливаем фон чекбокса, когда он отмечен */
+    background-color: #000000;
+    /* устанавливаем размеры квадрата */
+    width: 15px;
+    height: 15px;
+    /* устанавливаем радиус границы квадрата */
+    border-radius: 5px;
+    /* устанавливаем цвет границы квадрата */
+}
+
+.filters-item-body-item div {
+    display: block;
+}
+
+.sorting {
+    margin: 15px 0 30px 0;
+    height: 30px;
+    display: flex;
+}
+
+.sorting-title {
+    color: #e3e3e3;
+    margin: 3px 20px;
+    font-size: 16px;
+}
+
+.sorting-item {
+    margin: 3px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sorting-item.active .sorting-link {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.sorting-item a {
+    color: #7e7e7e;
+}
+
+.sorting-item a:hover{
+    transition: color 0.3s ease;
+    color: #ffffff;
+}
+
+.sorting-item-icon{
+    height: 1.4em;
+    padding: 0 0 0.2em 0;
+}
+
+.path-catalog {
+    display: flex;
+    color: white;
+    justify-content: center;
+}
+
+.discounts-path {
+    margin: 20px 0 10px 0;
+}
+
+.breadcrumbs {
+    margin: 0 0 25px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.breadcrumb-section {
+    margin: 0 8px;
+    text-decoration: none;
+}
+
+.breadcrumb-section a {
+    color: #ffffff;
+}
+
+.breadcrumb-selected {
+    margin: 0 8px;
+}
+
+.breadcrumb-selected a {
+    color: #959595;
+}
+
+.content-container {
+    padding: 25px 17% 0 17%;
+    background: linear-gradient(to top, rgb(207 202 202), rgb(94 94 94), rgb(0, 0, 0));
+}
+
+.game-info-container2 {
+    background: #ffffff;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+    margin: 0 0 20px 0;
+    padding: 14px;
+}
+
+.game-info-container2 div {
+    padding: 5px;
+}
+
+.purchase-info-container1 {
+    background: #ffffff;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+    margin: 0 0 20px 0;
+    font-size: 14px;
+}
+
+.purchase-info-container1-title {
+    padding: 20px 20px 10px 25px;
+    font-size: 1.2rem;
+}
+
+.content-game-button2 {
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    border: 2px solid #000;
+    border-radius: 5px;
+    display: block;
+    width: 100px;
+}
+
+.purchase-info-container1-button {
+    color: #fbf8f8;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #000000;
+    border: 2px solid #000;
+    border-radius: 5px;
+    display: block;
+    width: 100px;
+}
+
+.content-game-description-container1-sell {
+    font-size: 1.6rem;
+    padding: 15px 20px 15px 25px;
+}
+
+.game_area_description img {
+    border-radius: 1em;
+    width: 100%;
+    max-height: 20em;
+}
+
+.game_area_description-title {
+    font-size: 24px;
+    color: #00000082;
+    cursor: pointer;
+}
+
+#description-title-active {
+    color: #0000008f;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#description-title-active:hover {
+    color: rgb(0, 0, 0);
+}
+
+.game_area_description-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+}
+
+.game-title {
+    padding: 0 15px;
+    font-size: 1.2rem;
+    text-align: center;
+    transition: color 1.5s ease;
+}
+
+
+.content-game-description-edition {
+    display: flex;
+    padding: 0 10px 10px 25px;
+}
+
+.purchase-info-container2 {
+    background: #03070b;
+    width: auto;
+    display: flex;
+    align-items: center;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+    margin: 0 0 20px 0;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.purchase-info-container-2-a {
+    padding: 2em 1em;
+}
+
+.content-game-description-container1-availability-title {
+    font-size: 1.2rem;
+}
+
+.content-game-description-container1-availability {
+    display: flex;
+    font-size: 1.2rem;
+}
+
+.content-game-description-container1-availability-check {
+    height: 27px;
+    width: 27px;
+    padding-bottom: 3px;
+}
+
+.in-stock-badge, .out-of-stock-badge {
+    padding: 21px 10px 10px 25px;
+    display: block;
+}
+
+.content-game-description-container1-sell-and-card-button {
+    display: flex;
+}
+
+.purchase-info-container3 {
+    background: #ffffff;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+    margin: 0 0 20px 0;
+}
+
+.purchase-info-container-4 {
+    background: #ffffff;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+    margin: 0 0 20px 0;
+}
+
+.game-description {
+    padding: 25px 40px 25px 40px;
+}
+
+.purchase-details {
+    width: 73%;
+    height: auto;
+
+}
+
+.purchase-info-container1-edition {
+    height: auto;
+    margin: 0 10px 0 15px;
+    display: flex;
+}
+
+.game-image {
+    width: 100%;
+    height: 85.5%;
+    margin-bottom: 8px;
+    border-radius: 10px 10px 0 0;
+    filter: grayscale(90%);
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+    transition: filter 4s ease; /* Плавный переход фильтра */
+}
+
+.content-game-description-container1-availability-and-sell {
+    display: flex;
+    justify-content: space-between;
+}
+
+.game-description-cart-button {
+    padding: 10px;
+}
+
+/* Основные стили для контейнеров */
+.cart-button-in-cart-container,
+.cart-button-buy-container {
+    display: inline-block;
+    width: 155px;
+    margin: 0 auto;
+}
+
+/* Стили для ссылки и кнопки */
+.cart-button-in-cart, .cart-button-buy {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    line-height: normal;
+    cursor: pointer;
+    background-color: #000;
+    border: 2px solid #000;
+    border-radius: 15px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cart-button-in-cart {
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 1);
+}
+
+.cart-button-buy:hover {
+    background-color: #000;
+    color: #dbdbdb;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 1);
+}
+
+/* Убираем подчеркивание у ссылок */
+.cart-button-in-cart {
+    text-decoration: none;
+}
+
+
+.content-game-description-container1-card-button-mobile {
+    padding: 25px;
+}
+
+.content-game-description-container1-card-button-mobile button {
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    background-color: #000;
+    border: 2px solid #000;
+    border-radius: 40px;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.content-game-description-container1-card-button-mobile button:hover {
+    background-color: #000;
+    color: #dbdbdb;
+    border-color: #000;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 1);
+
+}
+
+.purchase-info-container2 img {
+    height: 50px;
+}
+
+#game-title {
+    overflow: hidden;
+}
+
+.glitch-onload {
+    animation: glitch-onload 1s 3s forwards;
+}
+
+@keyframes glitch-onload {
+    0% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes textGradient {
+    0% {
+        background-position: 0 50%;
+        color: #ffffff; /* Начальный цвет текста (белый) */
+    }
+    30% {
+        background-position: 0 50%;
+        color: #ffffff; /* Продолжаем белый цвет до 30% */
+    }
+    35% {
+        background-position: 100% 50%;
+        color: transparent; /* Плавный переход в градиент между 30% и 35% */
+    }
+    75% {
+        background-position: 0 50%;
+        color: transparent; /* Прозрачный цвет текста для плавного перехода в градиент между 35% и 75% */
+    }
+    100% {
+        background-position: 100% 50%;
+        color: #fff; /* Задайте цвет текста после окончания анимации (белый) */
+    }
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.pagination-item {
+    padding: 10px 15px;
+    width: auto;
+    height: 2.5em;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    background-color: #000000;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+    transition: box-shadow 0.7s;
+}
+
+.pagination-item:hover {
+    transition: box-shadow 0.3s;
+    box-shadow: 0 0 11px rgba(0, 0, 0, 0.8);
+}
+
+.pagination-item span {
+    font-family: "Montserrat", sans-serif;
+    transition: opacity 0.3s;
+    color: white;
+}
+
+.pagination-item:hover .pagination-item span {
+    transition: opacity 0.3s;
+    opacity: 0.8;
+}
+
+.nothing {
+    display: none;
+    text-align: center;
+}
+
+.nothing-item {
+    color: #e5e5e5;
+    font-size: 2.2em;
+    text-align: center;
+}
+
+.nothing-container {
+    margin: 10em;
+    display: flex;
+}
+
+.nothing-img{
+    width: 4em;
+    filter: brightness(0.9);
+    margin-left: 1em;
+}
+
+/* Общие стили для всех типов меню */
+.menu-content, .menu-content-game, .menu-content-index-mobile {
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    background-color: #060606;
+    width: 100%;
+    top: 64px;
+    transition: max-height 0.5s ease;
+}
+
+/* Показанное меню */
+.menu-content.show, .menu-content-index.show, .menu-content-game.show, .menu-content-index-mobile.show {
+    max-height: 300px; /* Задайте нужную высоту для раскрытия */
+}
+
+/* Элементы меню, изначально скрытые */
+.menu-content-item, .menu-content-item-game, .sidebar-item-title {
+    opacity: 0;
+    transition: opacity 0.5s ease 0.5s; /* Плавное появление с задержкой */
+}
+
+/* Появление текста */
+.menu-content.show .menu-content-item,
+.menu-content-index.show .menu-content-item,
+.menu-content-item-game,
+.menu-content-index-mobile.show .sidebar-item-title {
+    opacity: 1;
+}
+
+
+.menu-content-game.show {
+    border-right: 1px solid #28272757;
+    border-bottom: 1px solid #28272757;
+    border-left: 1px solid #28272757;
+}
+
+.menu-content-game {
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    background-color: #edededfc;
+    width: 31%;
+    border-radius: 0 0 1em 1em;
+    margin-left: 35%;
+    margin-right: 35%;
+    top: 4em;
+    transition: max-height 0.5s ease;
+    border: none;
+}
+
+.menu-content-catalog {
+    display: none;
+    position: absolute;
+    background-color: #0d0d0d;
+    width: 100%;
+    top: 65px;
+}
+
+.menu-content-container {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-content-index {
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    background-color: #1b1d20;
+    width: 100%;
+    top: 64px;
+    transition: max-height 0.5s ease;
+    border-bottom: 1px solid #ffffff12;
+}
+
+.sidebar-item {
+    font-size: 1.3em;
+    padding: 1.5em;
+}
+
+.sidebar-item-title {
+    text-decoration: none;
+    color: white;
+}
+
+.menu {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    padding: 0;
+}
+
+.line {
+  fill: none;
+  stroke: white;
+  stroke-width: 6;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.line1 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+.line2 {
+  stroke-dasharray: 60 60;
+  stroke-width: 6;
+}
+.line3 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+.opened .line1 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+.opened .line2 {
+  stroke-dasharray: 1 60;
+  stroke-dashoffset: -30;
+  stroke-width: 6;
+}
+.opened .line3 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+
+.menu-content-sections {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    padding: 1em;
+}
+
+.menu-content-sections-catalog {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 1em;
+}
+
+.menu-content-item a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.menu-content-game-item a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.menu-content-item-catalog a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.menu-content-item-index a {
+    text-decoration: none;
+    color: #efefef;
+}
+
+.menu-content-item {
+    padding-left: 60px;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.menu-content-item-game {
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sorting-buttons-mobile {
+    display: none;
+}
+
+.price-filter {
+    margin: 20px 0;
+}
+
+.price-range-slider-item {
+    margin-top: 0.5em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ui-slider-handle ui-corner-all ui-state-default ui-state-hover {
+    background: black;
+}
+
+.two {
+    animation: fillRed 4s ease-in-out forwards;
+    font-size: 1.3rem;
+}
+
+.game-details-container {
+    display: flex;
+}
+
+.game-info-container1 {
+    background: #03070b;
+    width: auto;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+    margin-bottom: 1.2em;
+}
+
+#content-game-buy-mobile {
+    display: none;
+}
+
+#description-title-active {
+    color: #000000;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#description-title-active:hover {
+    color: rgb(0, 0, 0);
+}
+
+.game_area_description_text {
+    display: block;
+}
+
+.about-activation-text {
+    display: none;
+}
+
+.about-activation-text-item-1 {
+    color: #737373;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.about-activation-text-item-1:hover {
+    color: #494949;
+    transition: all 0.2s ease-in-out;
+}
+
+.about-section-principles {
+    background-color: #0c0c0c;
+    color: #f5f5f5;
+    padding: 1.4em 25em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.about-title-principles {
+    font-size: 2.3em;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+.principle-item {
+    margin-top: 30px;
+}
+
+.principle-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #666;
+    padding-bottom: 5px;
+    text-align: left;
+}
+
+.principle-text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Стили для раздела целей */
+.goal-section {
+    background-color: #111;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 3em;
+}
+
+.goal-title {
+    font-size: 24px;
+    color: #cee2ff;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #cee2ff;
+    padding-bottom: 10px;
+}
+
+.goal-text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+}
+
+.goal-subtitle {
+    font-size: 20px;
+    color: #cee2ff;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.goal-highlight {
+    font-size: 18px;
+    color: #cee2ff;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.company-details p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 5px 0;
+}
+
+.social-icons {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.contact-title {
+    display: flex;
+}
+
+.contact-info-img {
+    height: 3em;
+    opacity: 1;
+    margin-right: 1.7em;
+    transition: all 0.2s ease-in-out;
+    animation: fade-in 0.5s;
+}
+
+.contact-info-img:hover {
+    opacity: 0.7;
+}
+
+
+@keyframes fillRed {
+    0% {
+        color: #03070b;
+    }
+    100% {
+        color: #fb0106; /* крова-красный цвет */
+    }
+}
+
+.about-title-principles {
+    font-size: 2.3em;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.principle-item, .goal-section {
+    margin-top: 30px;
+}
+
+/* Раздел о нас */
+
+.about-section {
+    background-color: #000;
+    color: #fff;
+    padding: 1.4em 29em;
+    font-family: "Montserrat", sans-serif;
+    margin: 0 auto;
+    min-height: 40em;
+}
+
+.checkout-cart-items{
+    font-size: 18px;
+    list-style-type: none;
+    padding: 5px 1em 5px 1em;
+}
+
+.checkout-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333; /* Темный серый текст */
+}
+
+
+
+.checkout-form-group {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.checkout-input {
+    width: 28em ;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc; /* Серый цвет рамки */
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.checkout-cart-title{
+    font-size: 22px;
+}
+
+.checkout-total{
+    font-size: 19px;
+}
+
+.checkout-cart {
+    color: black;
+    background-color: #ededed;
+    padding: 1.4em 29em;
+    font-family: "Montserrat", sans-serif;
+    margin: 0 auto;
+    min-height: 40em;
+}
+
+.about-title {
+    font-size: 32px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.about-welcome, .about-description {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.about-values, .price-drop-section, .about-history, .about-reviews, .company-details, .social-contact, .cta-section {
+    margin-top: 30px;
+}
+
+.values-title, .price-drop-title, .history-title, .reviews-title, .details-title, .contact-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #666;
+    padding-bottom: 5px;
+}
+
+.value-item, .price-drop-text, .history-text, .review-item {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.company-details p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 5px 0;
+}
+
+.social-icons {
+    margin-top: 10px;
+    text-align: center;
+}
+
+@media screen and (max-width: 1920px) {
+    .catalog-left{
+        min-width: 18em;
+    }
+    .catalog-container{
+        margin: 0 17% 0 17%;
+    }
+    .content-container {
+        padding: 25px 17% 0 17%;
+    }
+}
+
+@media screen and (max-width: 1680px) {
+    .catalog-left{
+        min-width: 18em;
+    }
+    .reference-index-2, .reference-index-1 {
+        right: 39em;
+    }
+    .catalog-container{
+        margin: 0 10% 0 10%;
+    }
+    .content-container {
+        padding: 25px 10% 0 10%;
+    }
+    .about-section-principles {
+        padding: 1.4em 20em;
+    }
+    .about-section {
+        padding: 1.4em 20em;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .category-domestic-item-2 {
+        display: none;
+    }
+    .reference-index-2, .reference-index-1{
+        right: 36em;
+    }
+    .catalog-left{
+        min-width: 18em;
+    }
+    .catalog-container{
+        margin: 0 10% 0 10%;
+    }
+    .content-container {
+        padding: 25px 10% 0 10%;
+    }
+    .about-section-principles {
+        padding: 1.4em 18em;
+    }
+    .about-section {
+        padding: 1.4em 18em;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .category-bastsellers .product-card:nth-child(n+5) {
+        display: none; /* Скрываем пятый элемент и все последующие */
+    }
+    .category .container-category-item:nth-child(n+6) {
+        display: none;
+    }
+    .slider-container{
+        max-width: 1080px;
+    }
+    .reference-index-2, .reference-index-1{
+        right: 30em;
+    }
+    .catalog-left{
+        min-width: 18em;
+    }
+    .catalog-container{
+        margin: 0 5% 0 5%;
+    }
+    .content-container {
+        padding: 25px 5% 0 5%;
+    }
+    .about-section-principles {
+        padding: 1.4em 10em;
+    }
+    .about-section {
+        padding: 1.4em 10em;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .slider-container{
+        max-width: 830px;
+    }
+    .reference-index-2, .reference-index-1{
+        right: 20em;
+    }
+    .game-info {
+        width: 25%;
+    }
+    .purchase-details {
+        width: 72%;
+    }
+    .catalog-left{
+        min-width: 18em;
+    }
+    .catalog-container{
+        margin: 0 4% 0 4%;
+    }
+    .content-container {
+        padding: 25px 4% 1px 4%;
+    }
+    .bar-inner {
+        margin: 0 4em 0 5em;
+    }
+    .cart-trigger {
+        margin-left: 0;
+    }
+    .advantages-item-text {
+        font-size: 14px;
+    }
+    .product-card {
+        width: 15em;
+    }
+    .image-Games {
+        height: 22em;
+    }
+    .reference-footer-4 {
+        right: 3em;
+    }
+    .about-section-principles {
+        padding: 1.4em 8em;
+    }
+    .about-section {
+        padding: 1.4em 8em;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .category-bastsellers .product-card:nth-child(n+4) {
+        display: none; /* Скрываем пятый элемент и все последующие */
+    }
+    .category .container-category-item:nth-child(n+5) {
+        display: none;
+    }
+    .cart-trigger {
+        display: none;
+    }
+    .reference-index-2, .reference-index-1{
+        right: 13em;
+    }
+    .game-info-container1 {
+        margin-bottom: 0;
+    }
+    .category-domestic-item-2 {
+        display: block;
+        padding-right: 7em;
+        padding-left: 7em;
+        margin: 2em 0;
+    }
+    .category-domestic-item-1 {
+        width: 40em;
+    }
+    .slider-container {
+        max-width: 668px;
+    }
+    .catalog-left{
+        min-width: 17em;
+        margin-right: 2em;
+    }
+    .advantages-item-text {
+        font-size: 13px;
+    }
+    .catalog-container{
+        margin: 0 4% 0 4%;
+    }
+    .content-container {
+        padding: 25px 3% 1px 3%;
+    }
+    .bar-inner {
+        margin: 0 5em 0 5em;
+    }
+    .zagalovok {
+        margin: 1em 0 2em 0;
+    }
+    .game-info {
+        width: 22em;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .purchase-details {
+        width: auto;
+    }
+    .game-details-container {
+        display: block;
+    }
+    .game-info-container2 {
+        display: none;
+    }
+    .game-info-container1 {
+        height: 540px;
+    }
+    .purchase-info-container1 {
+        margin-top: 3em;
+    }
+    .about-section-principles {
+        padding: 1.4em 5em;
+    }
+    .about-title-principles {
+        font-size: 2em;
+    }
+    .about-section {
+        padding: 1.4em 5em;
+    }
+    .about-title {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 867px) {
+    .catalog-title {
+        margin: 7px 0 1em 0;
+    }
+    .sorting-buttons-mobile {
+        display: block;
+    }
+    .reference-index-2, .reference-index-1{
+        right: 12em;
+        top: 242em;
+    }
+    .swiper-button-prev, .swiper-button-next {
+        display: none;
+    }
+    .filters {
+        display: none;
+    }
+    .bar-inner {
+        margin: 0 2em 0 2em;
+    }
+    .catalog-left{
+        min-width: 18em;
+        margin-right: 0;
+    }
+    .catalog-right{
+        width: auto;
+        margin: 0 1em;
+    }
+    .catalog-container{
+        margin: 0 1% 0 1%;
+        display: block;
+    }
+    .content-container {
+        padding: 25px 2% 1px 2%;
+    }
+    .search {
+        width: 24em;
+    }
+    .license {
+        display: none;
+    }
+    .product-card-title {
+        font-size: 1.1em;
+    }
+    .image-Games {
+        height: 22em;
+    }
+    .category-bastsellers .product-card:nth-child(3) {
+        display: block;
+    }
+    .category-bastsellers .product-card:nth-child(4) {
+        display: block;
+    }
+    .category-bastsellers {
+        flex-wrap: wrap;
+    }
+    .category-bastsellers .product-card {
+        display: block;
+        margin: 2em;
+    }
+    .nav-item {
+        padding: 0 1em 3px 1em;
+    }
+    .reference-index-1 {
+        top: 144em;
+    }
+    .about-section-principles {
+        padding: 1.4em 3em;
+    }
+    .about-title-principles {
+        font-size: 1.8em;
+    }
+    .principle-title, .goal-title {
+        font-size: 22px;
+    }
+    .goal-text, .principle-text {
+        font-size: 15px;
+    }
+    .about-section {
+        padding: 1.4em 3em;
+    }
+    .about-title {
+        font-size: 1.8em;
+    }
+    .values-title, .price-drop-title, .history-title, .reviews-title, .details-title, .contact-title {
+        font-size: 22px;
+    }
+    .value-item, .price-drop-text, .history-text, .review-item, .company-details p {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 665px) {
+    .game-info {
+        width: 23em;
+    }
+    .reference-index-2, .reference-index-1{
+        right: 5em;
+        top: 216em;
+    }
+    .game-description {
+        padding: 25px 2em 25px 2em;
+    }
+    .image-Games {
+        height: 19em;
+    }
+    #sir-brante {
+        font-size: 12px;
+    }
+    .nav-item {
+        padding: 0 1em 3px 1em;
+    }
+    .category-bastsellers .product-card {
+        display: block;
+        margin: 0.7em;
+    }
+    .search {
+        margin-right: 2em;
+        margin-left: 2em;
+    }
+    .sorting {
+        display: none;
+    }
+    .advantages-item{
+        width: calc(100% - 10px);
+        padding: 25px 40px;
+        flex-direction: inherit;
+    }
+    footer {
+        padding: 25px;
+    }
+    .advantages {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .nav-list {
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 2em;
+        font-size: 15px;
+    }
+    .product-card {
+        width: 13em;
+    }
+    .product-card .price {
+        font-size: 1em;
+    }
+    .game-genres-item-3 {
+        display: none;
+    }
+    .reference-index-1 {
+        top: 130em;
+    }
+    .about-section-principles {
+        padding: 1.4em 2em;
+    }
+    .about-title-principles {
+        font-size: 1.6em;
+    }
+    .principle-title, .goal-title, .goal-subtitle {
+        font-size: 20px;
+    }
+    .goal-text, .principle-text {
+        font-size: 14px;
+    }
+    .about-section {
+        padding: 1.4em 2em;
+    }
+    .about-title {
+        font-size: 1.6em;
+    }
+    .values-title, .price-drop-title, .history-title, .reviews-title, .details-title, .contact-title {
+        font-size: 20px;
+    }
+    .value-item, .price-drop-text, .history-text, .review-item, .company-details p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .game-genres {
+        display: none;
+    }
+    .reference-index-2, .reference-index-1{
+        right: 1em;
+    }
+    .game-info {
+        width: 22em;
+    }
+    #content-game-buy {
+        display: none;
+    }
+    #content-game-buy-mobile {
+        display: block;
+    }
+    .game_area_description-title {
+        font-size: 23px;
+    }
+    .reference-footer-4 {
+        right: 3em;
+    }
+    .about-section-principles {
+        padding: 1.4em 1.5em;
+    }
+    .about-title-principles {
+        font-size: 1.5em;
+    }
+    .goal-text, .principle-text {
+        font-size: 13px;
+    }
+    .about-section {
+        padding: 1.4em 1.5em;
+    }
+    .about-title {
+        font-size: 1.5em;
+    }
+    .values-title, .price-drop-title, .history-title, .reviews-title, .details-title, .contact-title {
+        font-size: 18px;
+    }
+    .value-item, .price-drop-text, .history-text, .review-item, .company-details p {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .game-info {
+        width: 20em;
+    }
+    .reference-footer-4 {
+        right: 3em;
+        font-size: 0.7em;
+    }
+    .reference-index-2, .reference-index-1{
+        right: 1em;
+        top: 234em;
+    }
+    .game-description {
+        padding: 25px 1.5em 25px 1.5em;
+    }
+    .product-card-title {
+        font-size: 0.9em;
+    }
+    .search {
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .category-domestic-item-1 {
+        width: auto;
+        padding-right: 1em;
+        padding-left: 1em;
+    }
+    .wrapper1{
+       height: 23em;
+    }
+    .card img{
+        border-radius: 20px;
+    }
+    .swiper-slide {
+        border-radius: 23px;
+    }
+    .slider-top {
+        margin-bottom: 0;
+    }
+    .game-price {
+        font-size: 16px;
+    }
+    .search-control{
+        font-size: 20px;
+    }
+    .category-domestic {
+        justify-content: center;
+    }
+    .game-name {
+        padding-left: 10px;
+        padding-right: 7px;
+        font-size: 14px;
+    }
+    .game-activation div{
+        padding-top: 2px;
+    }
+    #sir-brante {
+        font-size: 12px;
+    }
+    .slide-info-price{
+        width: 4em;
+        padding: 5px;
+    }
+    .card img {
+        height: 100%;
+    }
+    .swiper-slide {
+        height: auto;
+    }
+    .buy-button{
+        display: none;
+        padding: 5px;
+        width: 4em;
+    }
+    .slide-info{
+        padding: 0 1em;
+        justify-content: end;
+    }
+    .swiper-button-prev, .swiper-button-next {
+        display: none;
+    }
+    .category-bastsellers .product-card:nth-child(3) {
+        display: block;
+    }
+    .category-bastsellers .product-card:nth-child(4) {
+        display: block;
+    }
+    .category .container-category-item:nth-child(5) {
+        display: block;
+    }
+    .category .container-category-item:nth-child(6) {
+        display: block;
+    }
+    .category .container-category-item:nth-child(4) {
+        display: block;
+    }
+    .category-bastsellers .product-card {
+        display: block;
+        margin: 7px 0;
+    }
+    .category-bastsellers {
+        margin-bottom: 20px;
+    }
+    .header {
+        padding: 10px 0;
+    }
+    .category-bastsellers{
+        flex-wrap: wrap;
+    }
+    .bar-inner {
+        margin: 0 2em 0 1em;
+    }
+    .container-category__item{
+        margin: 0;
+    }
+    .profile {
+        display: none;
+    }
+    .category {
+        padding: 0;
+        justify-content: space-between;
+    }
+    .nav-item {
+        margin: 10px 10px;
+    }
+    .nav-list {
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 2em;
+        font-size: 15px;
+    }
+    .license {
+        display: none;
+    }
+    .payment-system {
+        display: none;
+    }
+    .advantages-item-text {
+        font-size: 14px;
+        padding: 0 1em;
+    }
+    .advantages-item {
+        padding: 20px 20px;
+    }
+    .advantages {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    footer {
+        padding: 0;
+    }
+    .container-category-item {
+        width: 7em;
+        margin-top: 10px;
+    }
+    .category {
+        padding-top: 2em;
+        padding-bottom: 2em;
+        flex-wrap: wrap;
+    }
+    .zagalovok {
+        font-size: 15px;
+    }
+    .category-domestic-item-2 {
+        border-right: 0;
+        border-left: 0;
+        padding-bottom: 1em;
+        border-top: 1px solid #ffffff29;
+        border-bottom: 1px solid #ffffff29;
+    }
+    .game-img-index img {
+       width: 165px;
+    }
+    .img-developer-container-atomic {
+        margin-bottom: 1em;
+    }
+    .zagalovok-2 {
+        font-size: 18px;
+    }
+    .cart-trigger {
+        display: none;
+    }
+    .catalog-icon {
+        display: none;
+    }
+    .category-domestic-item-2 {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .search-form {
+        margin: 0 0 0 2em;
+    }
+    .menu-icon {
+        width: 70px;
+    }
+    .image-Games{
+        height: 15em;
+    }
+    .product-card .price {
+        font-size: 1em;
+    }
+    .price{
+        padding: 0 10px 10px 15px;
+    }
+    .catalog-left{
+        min-width: 18em;
+    }
+    section {
+        margin: 0 2px;
+    }
+    .product-card {
+        width: 11em;
+    }
+    .catalog-container{
+        margin: 0 0 0 0;
+    }
+    .content-container {
+        padding: 25px 2% 1px 2%;
+    }
+    .game-img img {
+        width: 10em;
+    }
+    .game_area_description-title {
+        font-size: 19px;
+    }
+    .game_area_description_text {
+        font-size: 14px;
+    }
+    .purchase-info-container2 img {
+        height: 40px;
+    }
+    .swiper-container {
+        height: 19em;
+    }
+    #swiper-container-screen {
+        height: auto;
+    }
+    .about-section-principles {
+        padding: 1.4em 1.5em;
+    }
+    .about-title-principles {
+        font-size: 1.3em;
+    }
+    .goal-title {
+        font-size: 18px;
+    }
+    .goal-subtitle {
+        font-size: 16px;
+    }
+    .goal-text, .principle-text {
+        font-size: 12px;
+    }
+    .about-section {
+        padding: 1.4em 1.5em;
+    }
+    .about-title {
+        font-size: 1.3em;
+    }
+    .values-title, .price-drop-title, .history-title, .reviews-title, .details-title, .contact-title {
+        font-size: 17px;
+    }
+    .value-item, .price-drop-text, .history-text, .review-item, .company-details p {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 385px) {
+    .advantages-item-text {
+        font-size: 12px;
+    }
+    .reference-index-2, .advantages-item-text-icon-index-2, .reference-index-1 {
+        display: none;
+    }
+    .breadcrumbs {
+        font-size: 14px;
+    }
+    .purchase-info-container2 img {
+        height: 33px;
+    }
+    .advantages-item-text-icon-footer-4 {
+        display: none;
+    }
+    .about-section-principles {
+        padding: 1.4em 1.7em;
+    }
+    .about-title-principles {
+        font-size: 1.2em;
+    }
+    .goal-title {
+        font-size: 16px;
+    }
+    .goal-subtitle {
+        font-size: 15px;
+    }
+    .goal-text, .principle-text {
+        font-size: 11px;
+    }
+    .about-section {
+        padding: 1.4em 1.7em;
+    }
+    .about-title {
+        font-size: 1.2em;
+    }
+    .values-title, .price-drop-title, .history-title, .reviews-title, .details-title, .contact-title {
+        font-size: 16px;
+    }
+    .value-item, .price-drop-text, .history-text, .review-item, .company-details p {
+        font-size: 11px;
+    }
+}
+
+

@@ -1,0 +1,106 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+.slider-container-screenshot {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card {
+    transition: filter 0.2s;
+    filter: brightness(100%);
+    padding: 15px;
+    height: auto;
+    color: #111;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.slider-container {
+    width: 55em;
+    height: 11em;
+    padding: 0 1em;
+    position: relative;
+    margin: 0 auto;
+}
+
+.card img {
+    transition: transform 0.3s ease-in-out;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    position: static;
+    background-color: #fff;
+    border-radius: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90px 90px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    display: none;
+}
+
+.swiper-button-prev {
+    border: none;
+    margin-right: 1em;
+    margin-top: 0.2em;
+    background-image: url("/static/main/img/structure/slider-arrow-small-2.png");
+    left: -90px;
+    width: 3em;
+    height: 3em;
+    transition: all 0.15s ease-in-out;
+}
+
+.swiper-button-next {
+    border: none;
+    margin-top: 0.2em;
+    background-image: url("/static/main/img/structure/slider-arrow-small-1.png");
+    right: -90px;
+    width: 3em;
+    height: 3em;
+    transition: all 0.15s ease-in-out;
+}
+
+.swiper-button-next:hover {
+    opacity: 0.9;
+}
+
+.swiper-button-prev:hover {
+    opacity: 0.9;
+}
+
+.slider-top {
+    padding: 1em 2em 0 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+}
+
+.slider-top-title{
+    font-size: 22px;
+}
+
+
+@media screen and (max-width: 385px) {
+    .purchase-info-container3 {
+        max-width: 54em;
+    }
+}
+
+
+
+
+.slider-buttons {
+    display: flex;
+    align-items: center;
+}

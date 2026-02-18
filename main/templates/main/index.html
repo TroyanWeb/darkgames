@@ -1,0 +1,482 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'main/css/slider/swiper.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/slider/default-styles.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/slider/slider.css' %}">
+{% endblock %}
+
+{% block bar %}
+    <div class="menu-content-index" id="menu-content">
+        <div class="menu-content-container">
+            <div class="menu-content-sections">
+                <div class="menu-content-item" id="menu-content-item-new" data-url="{% url 'index' %}#zagalovok-new">Новинки</div>
+                <div class="menu-content-item" id="menu-content-item-editors-choice" data-url="{% url 'index' %}#zagalovok-editors-choice">Наш выбор</div>
+                <div class="menu-content-item" id="menu-content-item-popular" data-url="{% url 'index' %}#zagalovok-popular">Популярное</div>
+            </div>
+        </div>
+    </div>
+    <div class="menu-content-index-mobile" id="menu-content-mobile">
+        <div class="menu-content-mobile-container">
+            <div class="menu-content-mobile-sections">
+                <div class="sidebar" id="sidebar">
+                    <div class="sidebar-container">
+                        <div class="sidebar-item">
+                            <a href="{% url 'catalog' %}">
+                                <span class="sidebar-item-title">
+                                    Весь каталог
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Популярное
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Новинки
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Выбор редакции
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="{% url 'reviews' %}">
+                                <span class="sidebar-item-title">
+                                    Отзывы
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="wrapper1">
+    <div class="slider-container">
+        <div class="slider-top">
+            <div class="slider-buttons">
+                <button class="swiper-button-prev"></button>
+                <button class="swiper-button-next"></button>
+            </div>
+        </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <a href="/catalog/ready-or-not/" class="swiper-slide card">
+                    <div class="slide-content">
+                        <img data-src="" id="img-ready-or-not" id="img-ready-or-not" src="{% static 'main\img\slider\5.png' %}" alt="image" class="swiper-lazy">
+                        <div class="slide-info">
+                            <button class="price-button" id="buy-button-price-4">
+                                <span class="slide-info-price" id="slide-info-price-4-1">3000₽</span>
+                            </button>
+                            <button class="buy-button" id="buy-button-title-4">
+                                <span class="slide-info-price" id="slide-info-price-4-2">Купить</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                </a>
+                <a href="/catalog/grand-theft-auto-v/" class="swiper-slide card">
+                    <div class="slide-content">
+                        <img data-src="" src="{% static 'main\img\slider\9.webp' %}" alt="image" class="swiper-lazy">
+                        <div class="slide-info">
+                            <button class="price-button" id="buy-button-price-2">
+                                <span class="slide-info-price" id="slide-info-price-2-1">3000₽</span>
+                            </button>
+                            <button class="buy-button" id="buy-button-title-2">
+                                <span class="slide-info-price" id="slide-info-price-2-2">Купить</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                </a>
+                <a href="/catalog/helldivers-2/" class="swiper-slide card">
+                    <div class="slide-content">
+                        <img data-src="" src="{% static 'main\img\slider\10.jpeg' %}" alt="image" class="swiper-lazy">
+                        <div class="slide-info">
+                            <button class="price-button" id="buy-button-price-1">
+                                <span class="slide-info-price" id="slide-info-price-1-1">3000₽</span>
+                            </button>
+                            <button class="buy-button" id="buy-button-title-1">
+                                <span class="slide-info-price" id="slide-info-price-1-2">Купить</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                </a>
+                <a href="/catalog/resident-evil-4/" class="swiper-slide card">
+                    <div class="slide-content">
+                        <img data-src="" src="{% static 'main\img\slider\9.jpeg' %}" alt="image" class="swiper-lazy">
+                        <div class="slide-info">
+                            <button class="price-button" id="buy-button-price-3">
+                                <span class="slide-info-price" id="slide-info-price-3-1">3000₽</span>
+                            </button>
+                            <button class="buy-button" id="buy-button-title-3">
+                                <span class="slide-info-price" id="slide-info-price-3-2">Купить</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                </a>
+                <a href="/catalog/sea-of-thieves/" class="swiper-slide card">
+                    <div class="slide-content">
+                        <img data-src="" id="img-sea-of-thieves" src="{% static 'main\img\slider\3.jpeg' %}" alt="image" class="swiper-lazy">
+                        <div class="slide-info">
+                            <button class="price-button" id="buy-button-price-5">
+                                <span class="slide-info-price" id="slide-info-price-5-1">3000₽</span>
+                            </button>
+                            <button class="buy-button" id="buy-button-title-5">
+                                <span class="slide-info-price" id="slide-info-price-5-2">Купить</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                </a>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</div>
+    <script src="{% static 'main/js/swiper.min.js' %}"></script>
+    <script src="{% static 'main/js/slider.js' %}"></script>
+    <section class="zagalovok" id="zagalovok-popular">
+        <h2>Популярные</h2>
+    </section>
+    <section class="category-bastsellers">
+        {% for game in games %}
+            <div class="product-card">
+                <a class="product-card-container" href="{% url 'games-detail' game.slug %}">
+                    <img class="image-Games" src="{{ game.product_image.url }}" alt="Product Image">
+                    <div class="product-card-title">{{ game.title }}</div>
+                    <div class="price">
+                        {{ game.price }}&#8381;
+                    </div>
+                </a>
+                <div class="add-to-cart">
+                    <img src="{% static 'main/img/structure/plus.svg' %}" alt="Add to Cart">
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+    <section class="wrapper2">
+        <div class="zagalovok-2" id="zagalovok-editors-choice">
+            <span>Выбор редакции</span>
+            <img class="advantages-item-text-icon-index-1" src="{% static 'main/img/structure/reference-icon.svg' %}">
+            <div class="reference-index-1">
+                <span>Здесь мы представляем вам список игр, в которые играла наша редакция и которые мы с радостью рекомендуем для приобретения в нашем интернет-магазине.<br></br> Наша команда тщательно отобрала эти игры на основе их качества, увлекательности и уникального игрового опыта. Мы уверены, что они принесут вам массу удовольствия и незабываемых впечатлений.</span>
+            </div>
+        </div>
+        <div class="category-bastsellers">
+            {% for el in editors_choice_games %}
+                <div class="product-card">
+                    <a class="product-card-container" href="{% url 'games-detail' el.slug %}">
+                        <img class="image-Games" src="{{ el.product_image.url }}" alt="Product Image">
+                        <div class="product-card-info">
+                            <div class="product-card-title">{{ el.title }}</div>
+                            <div class="price">{{ el.price }}&#8381;</div>
+                        </div>
+                    </a>
+                    <div class="add-to-cart">
+                        <img src="{% static 'main/img/structure/plus.svg' %}" alt="Add to Cart">
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="container-category">
+            <ul class="category">
+                <li class="container-category-item">
+                    <a href="/catalog/?genre=survival" class="container-category__item">
+                        <div class="container-category-item-wrapper">
+                            <img class="container-category-item-image" src="{% static 'main/img/structure/category1.svg' %}">
+                            <img class="container-category-item-image-hover"
+                                 src="{% static 'main/img/structure/category1.2.svg' %}">
+                        </div>
+                        <div class="container-category-item-title">Выживание</div>
+                    </a>
+                </li>
+                <li class="container-category-item">
+                    <a href="/catalog/?genre=action" class="container-category__item">
+                        <div class="container-category-item-wrapper">
+                            <img class="container-category-item-image" src="{% static 'main/img/structure/category2.svg' %}">
+                            <img class="container-category-item-image-hover"
+                                 src="{% static 'main/img/structure/category2.2.svg' %}">
+                        </div>
+                        <div class="container-category-item-title">Экшен</div>
+                    </a>
+                </li>
+                <li class="container-category-item">
+                    <a href="/catalog/?genre=strategy" class="container-category__item">
+                        <div class="container-category-item-wrapper">
+                            <img class="container-category-item-image" src="{% static 'main/img/structure/category3.svg' %}">
+                            <img class="container-category-item-image-hover"
+                                 src="{% static 'main/img/structure/category3.2.svg' %}">
+                        </div>
+                        <div class="container-category-item-title">Стратегии</div>
+                    </a>
+                </li>
+                <li class="container-category-item">
+                    <a href="/catalog/?genre=indie" class="container-category__item">
+                        <div class="container-category-item-wrapper">
+                            <img class="container-category-item-image" src="{% static 'main/img/structure/category4.svg' %}">
+                            <img class="container-category-item-image-hover"
+                                 src="{% static 'main/img/structure/category4.2.svg' %}">
+                        </div>
+                        <div class="container-category-item-title">Инди</div>
+                    </a>
+                </li>
+                <li class="container-category-item">
+                    <a href="/catalog/?genre=sandbox" class="container-category__item">
+                        <div class="container-category-item-wrapper">
+                            <img class="container-category-item-image" src="{% static 'main/img/structure/category5.svg' %}">
+                            <img class="container-category-item-image-hover"
+                                 src="{% static 'main/img/structure/category5.2.svg' %}">
+                        </div>
+                        <div class="container-category-item-title">Песочница</div>
+                    </a>
+                </li>
+                <li class="container-category-item">
+                    <a href="/catalog/?genre=rpg" class="container-category__item">
+                        <div class="container-category-item-wrapper">
+                            <img class="container-category-item-image" src="{% static 'main/img/structure/category6.svg' %}">
+                            <img class="container-category-item-image-hover"
+                                 src="{% static 'main/img/structure/category6.2.svg' %}">
+                        </div>
+                        <div class="container-category-item-title">РПГ</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="zagalovok-2">
+            <span>От отечественных разработчиков</span>
+            <img class="advantages-item-text-icon-index-2" src="{% static 'main/img/structure/reference-icon.svg' %}">
+            <div class="reference-index-2">
+                <span>В этой рубрике мы представляем вам лучшие игры, созданные отечественными разработчиками. Наши редакторы тщательно отобрали эти игры на основе их качества, оригинальности и вклада в мировую игровую индустрию.<br></br> Игры от наших разработчиков предлагают захватывающие миры, увлекательные сюжеты и интересные геймплейные механики. Они стали яркими представителями нашей игровой индустрии и привлекают внимание геймеров по всему миру.</span>
+            </div>
+        </div>
+        <div class="category-domestic">
+            <div class="category-domestic-item-1">
+                <div class="category-domestic-item-container">
+                    <div class="img-developer-container">
+                    <img class="img-developer" src="{% static 'main/img/structure/harvey-games.svg' %}">
+                </div>
+                    <div class="category-domestic-games">
+                        <div class="game-item-index">
+                            <a class="catalog-item" href="/catalog/the-witchs-cauldron/">
+                                <div class="game-img-index">
+                                    <img src="{% static 'main/img/games/catalog/the-witchs-cauldron-catalog.jpg' %}">
+                                </div>
+                                <div class="game-name-index">The Witch's Cauldron
+                                    <div class="catalog-item__info">
+                                        <div class="game-activation">
+                                            <img class="game-icon" src="{% static 'main/img/structure/vk-play-icon.svg' %}" alt="The Witch's Cauldron">
+                                            <div>VK Play</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="game-price">
+                                    <span class="game-price-span">0₽</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-domestic-item-container">
+                    <div class="img-developer-container">
+                    <img class="img-developer" src="{% static 'main/img/structure/sever-games.svg' %}">
+                </div>
+                    <div class="category-domestic-games">
+                    <div class="game-item-index">
+                        <a class="catalog-item" href="/catalog/the-life-and-suffering-of-sir-brante/">
+                            <div class="game-img-index">
+                                <img src="{% static 'main/img/games/catalog/the-life-and-suffering-of-sir-brante-catalog.jpg' %}">
+                            </div>
+                            <div class="game-name-index" id="sir-brante"><span>The Life and Suffering of Sir Brante</span>
+                                <div class="catalog-item__info">
+                                    <div class="game-activation">
+                                        <img class="game-icon" src="{% static 'main/img/structure/steam-icon.svg' %}" alt="{{ el.title }}">
+                                        <div>Steam</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="game-price">
+                                <span class="game-price-span">0₽</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                </div>
+                <div class="category-domestic-item-container-3">
+                    <div class="img-developer-container">
+                    <img class="img-developer" src="{% static 'main/img/structure/morteshka.svg' %}">
+                </div>
+                    <div class="category-domestic-games">
+                    <div class="game-item-index">
+                        <a class="catalog-item" href="/catalog/black-book/">
+                            <div class="game-img-index">
+                                <img src="{% static 'main/img/games/catalog/black-book-catalog.webp' %}">
+                            </div>
+                            <div class="game-name-index">Black Book
+                                <div class="catalog-item__info">
+                                    <div class="game-activation">
+                                        <img class="game-icon" src="{% static 'main/img/structure/steam-icon.svg' %}" alt="Black Book">
+                                        <div>Steam</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="game-price">
+                                <span class="game-price-span">0₽</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="category-domestic-item-2">
+                <div>
+                    <div class="img-developer-container-atomic">
+                    <img class="img-developer" src="{% static 'main/img/structure/mundfish.svg' %}">
+                </div>
+                    <div class="category-domestic-games">
+                    <div class="product-card">
+                        <a class="product-card-container" href="/catalog/atomic-heart/">
+                            <img class="image-Games" src="{% static 'main/img/games/atomic-heart.jpg' %}" alt="Product Image">
+                            <div class="product-card-title">Atomic Heart</div>
+                            <div class="price">
+                                <span>
+                                    2000&#8381;
+                                </span>
+                            </div>
+                        </a>
+                        <div class="add-to-cart">
+                            <img src="{% static 'main/img/structure/plus.svg' %}" alt="Add to Cart">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="category-domestic-item-1">
+                <div class="category-domestic-item-container">
+                    <div class="img-developer-container">
+                    <img class="img-developer" src="{% static 'main/img/structure/alawar.svg' %}">
+                </div>
+                    <div class="category-domestic-games">
+                    <div class="game-item-index">
+                        <a class="catalog-item" href="/catalog/beholder/">
+                            <div class="game-img-index">
+                                <img src="{% static 'main/img/games/catalog/beholder.webp' %}">
+                            </div>
+                            <div class="game-name-index">Beholder
+                                <div class="catalog-item__info">
+                                    <div class="game-activation">
+                                        <img class="game-icon" src="{% static 'main/img/structure/steam-icon.svg' %}" alt="Beholder">
+                                        <div>Steam</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="game-price">
+                                <span class="game-price-span">0₽</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="game-item-index">
+                        <a class="catalog-item" href="/catalog/wall-world/">
+                            <div class="game-img-index">
+                                <img src="{% static 'main/img/games/catalog/wall-world-catalog.jpg' %}">
+                            </div>
+                            <div class="game-name-index">Wall World
+                                <div class="catalog-item__info">
+                                    <div class="game-activation">
+                                        <img class="game-icon" src="{% static 'main/img/structure/steam-icon.svg' %}" alt="Wall World">
+                                        <div>Steam</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="game-price">
+                                <span class="game-price-span">0₽</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="game-item-index">
+                        <a class="catalog-item" href="/catalog/necrosmith/">
+                            <div class="game-img-index">
+                                <img src="{% static 'main/img/games/catalog/necrosmith-catalog.jpg' %}">
+                            </div>
+                            <div class="game-name-index">Necrosmith
+                                <div class="catalog-item__info">
+                                    <div class="game-activation">
+                                        <img class="game-icon" src="{% static 'main/img/structure/steam-icon.svg' %}" alt="Necrosmith">
+                                        <div>Steam</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="game-price">
+                                <span class="game-price-span">0₽</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                </div>
+                <div class="category-domestic-item-container-3">
+                    <div class="img-developer-container">
+                    <img class="img-developer" src="{% static 'main/img/structure/soviet-games.svg' %}">
+                </div>
+                    <div class="category-domestic-games">
+                    <div class="game-item-index">
+                        <a class="catalog-item" href="/catalog/love-money-rocknroll/">
+                            <div class="game-img-index">
+                                <img src="{% static 'main/img/games/catalog/love-money-rockn-roll-catalog.jpg' %}">
+                            </div>
+                            <div class="game-name-index">Love, Money, Rock'n'Roll
+                                <div class="catalog-item__info">
+                                    <div class="game-activation">
+                                        <img class="game-icon" src="{% static 'main/img/structure/steam-icon.svg' %}" alt="Love, Money, Rock'n'Roll">
+                                        <div>Steam</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="game-price">
+                                <span class="game-price-span">0₽</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="zagalovok" id="zagalovok-new">
+        <h2>Новинки</h2>
+    </section>
+    <section class="category-bastsellers">
+        {% for el in top_games %}
+            <div class="product-card">
+                <a class="product-card-container" href="{% url 'games-detail' el.slug %}">
+                    <img class="image-Games" src="{{ el.product_image.url }}" alt="Product Image">
+                    <div class="product-card-info">
+                        <div class="product-card-title">{{ el.title }}</div>
+                        <div class="price">
+                            {{ el.price }}&#8381;
+                        </div>
+                    </div>
+                </a>
+                <div class="add-to-cart">
+                    <img src="{% static 'main/img/structure/plus.svg' %}" alt="Add to Cart">
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}

@@ -1,0 +1,36 @@
+/* swiper-bullets styling */
+.swiper-container-screenshot{
+    width: 90%;
+    margin: 0 auto;
+    height: auto;
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    margin: 0 15px;
+    background-color: #999999;
+    opacity: 1;
+    transition: all 0.15s ease-in-out;
+}
+
+.swiper-pagination-bullet:hover{
+    background-color: #000000;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #000000;
+}
+
+.swiper-container-screenshot{
+    padding-bottom: 2em;
+}
+
+.swiper-lazy {
+    max-width: 100%;
+}
+
+.swiper-container {
+    margin: 0 1em;
+    padding-bottom: 1em;
+}

@@ -1,0 +1,93 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block head %}
+    <script src="https://vk.com/js/api/openapi.js?169" type="text/javascript"></script>
+{% endblock %}
+
+{% block bar %}
+    <div class="menu-content-index" id="menu-content">
+        <div class="menu-content-container">
+            <div class="menu-content-sections">
+                <div class="menu-content-item" id="menu-content-item-new" data-url="{% url 'index' %}#zagalovok-new">Новинки</div>
+                <div class="menu-content-item" id="menu-content-item-editors-choice" data-url="{% url 'index' %}#zagalovok-editors-choice">Наш выбор</div>
+                <div class="menu-content-item" id="menu-content-item-popular" data-url="{% url 'index' %}#zagalovok-popular">Популярное</div>
+            </div>
+        </div>
+    </div>
+    <div class="menu-content-index-mobile" id="menu-content-mobile">
+        <div class="menu-content-mobile-container">
+            <div class="menu-content-mobile-sections">
+                <div class="sidebar" id="sidebar">
+                    <div class="sidebar-container">
+                        <div class="sidebar-item">
+                            <a href="{% url 'catalog' %}">
+                                <span class="sidebar-item-title">
+                                    Весь каталог
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Популярное
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Новинки
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Выбор редакции
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Контакты
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <section class="reviews-title1">
+        <h1 class="reviews-title-1">Отзывы</h1>
+    </section>
+    <section class="reviews-title2">
+        <h2 class="reviews-title3">Оставь свой отзыв здесь:</h2>
+        <div id="vk_comments"></div>
+        <script type="text/javascript">
+            VK.Widgets.Comments('vk_comments');
+        </script>
+        <div id="vk_comments_browse"></div>
+        <script type="text/javascript">
+            window.onload = function () {
+                VK.init({apiId: 111, onlyWidgets: true});
+                VK.Widgets.CommentsBrowse('vk_comments_browse', {width: 500, limit: 5, mini: 0});
+            }
+        </script>
+    </section>
+    <script type="text/javascript">
+        VK.init({
+            apiId: ВАШ_API_ID,
+            onlyWidgets: true
+        });
+    </script>
+{% endblock %}
+
+{% block scripts_end %}
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+{% endblock %}

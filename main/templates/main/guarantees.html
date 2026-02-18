@@ -1,0 +1,92 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block head %}
+    <script src="https://vk.com/js/api/openapi.js?169" type="text/javascript"></script>
+{% endblock %}
+
+{% block bar %}
+    <div class="menu-content-index" id="menu-content">
+        <div class="menu-content-container">
+            <div class="menu-content-sections">
+                <div class="menu-content-item" id="menu-content-item-new" data-url="{% url 'index' %}#zagalovok-new">Новинки</div>
+                <div class="menu-content-item" id="menu-content-item-editors-choice" data-url="{% url 'index' %}#zagalovok-editors-choice">Наш выбор</div>
+                <div class="menu-content-item" id="menu-content-item-popular" data-url="{% url 'index' %}#zagalovok-popular">Популярное</div>
+            </div>
+        </div>
+    </div>
+    <div class="menu-content-index-mobile" id="menu-content-mobile">
+        <div class="menu-content-mobile-container">
+            <div class="menu-content-mobile-sections">
+                <div class="sidebar" id="sidebar">
+                    <div class="sidebar-container">
+                        <div class="sidebar-item">
+                            <a href="{% url 'catalog' %}">
+                                <span class="sidebar-item-title">
+                                    Весь каталог
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Популярное
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Новинки
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Выбор редакции
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Контакты
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="guarantees">
+        <div class="guarantees-title"><strong>Гарантии</strong></div>
+        <div class="guarantees-text">
+            <p><strong>Мы, как интернет-магазин компьютерных игр, предоставляем следующие гарантии:</strong></p>
+            <p>
+                1. Авторизованные ключи: Мы гарантируем, что все ключи, продаваемые нами, являются официальными и
+                авторизованными производителями игр.<br>
+                2. Безопасность: Мы гарантируем безопасность платежей и конфиденциальность персональных данных наших
+                клиентов.<br>
+                3. Быстрая доставка: Мы гарантируем мгновенную доставку ключей на электронную почту клиента или в личный
+                кабинет на сайте после подтверждения покупки.<br>
+                4. Возврат средств: Мы гарантируем полный возврат средств в течение 14 дней с момента покупки, если ключ
+                не был активирован и не использовался, если имеются доказательства виде записи экрана при активации ключа или при.<br>
+                5. Поддержка клиентов: Мы гарантируем высококачественную поддержку клиентов, доступную 24/7 через
+                онлайн-чат, электронную почту или телефон.<br>
+                6. Легальность: Мы гарантируем, что наши ключи не нарушают авторские права и не используются для
+                нелегальной деятельности.<br>
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts_end %}
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+{% endblock %}
+
+

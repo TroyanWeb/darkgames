@@ -1,0 +1,32 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+
+{% block main %}
+    <div class="checkout-cart">
+        <h1 class="checkout-title">Оформление заказа</h1>
+
+        <form method="post" class="checkout-form">
+            {% csrf_token %}
+            <div class="checkout-form-group">
+                <label for="id_customer_name" class="checkout-label">Ваше имя:</label>
+                <input type="text" name="customer_name" id="id_customer_name" class="checkout-input" required>
+            </div>
+            <div class="checkout-form-group">
+                <label for="id_customer_email" class="checkout-label">Ваш email:</label>
+                <input type="email" name="customer_email" id="id_customer_email" class="checkout-input" required>
+            </div>
+            <div class="checkout-cart-details">
+                <h3 class="checkout-cart-title">Ваш заказ:</h3>
+                <ul class="checkout-cart-items">
+                    {% for item in cart.values %}
+                        <li class="checkout-cart-item">{{ item.title }} - {{ item.price }}₽</li>
+                    {% endfor %}
+                </ul>
+                <p class="checkout-total"><strong>Общая стоимость:</strong> {{ total_price }}₽</p>
+            </div>
+            <button type="submit" class="checkout-submit">Оплатить</button>
+        </form>
+    </div>
+
+{% endblock %}

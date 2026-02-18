@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.16 24.16">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #020202;
+      }
+    </style>
+  </defs>
+  <circle class="cls-1" cx="12.08" cy="12.08" r="12.08"/>
+  <path class="cls-2" d="m11.3,12.85h-5.18v-1.45h5.15v-5.26h1.53v5.25h5.15c.03.5.05.9.08,1.42h-5.23v5.21h-1.51v-5.17Z"/>
+</svg>

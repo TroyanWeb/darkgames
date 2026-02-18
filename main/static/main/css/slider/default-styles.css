@@ -1,0 +1,267 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+.slider-container {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card {
+    padding: 1px;
+    background-color: #000000;
+    min-height: 300px;
+    color: #111;
+    font-size: 16px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    overflow: hidden; /* Добавляем это свойство */
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+.slide-info {
+    position: absolute;
+    bottom: 20px; /* Вы можете настроить отступ от нижнего края изображения */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 3em; /* Добавьте отступы для стилизации */
+    box-sizing: border-box;
+}
+
+.slide-info-price {
+    border-radius: 10px;
+    text-align: center;
+    width: 10%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+}
+
+.price-button {
+    font-family: 'Montserrat', 'sans-serif';
+    box-shadow: 0 0 2em rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    width: 7em;
+    cursor: pointer;
+    padding: 10px 10px;
+    font-size: 20px;
+    filter: brightness(100%);
+    transition: all 0.4s ease-in-out;
+    border: 1px solid #000000b5;
+}
+
+.buy-button {
+    border-radius: 10px;
+    box-shadow: 0 0 2em rgba(0, 0, 0, 0.7);
+    font-family: 'Montserrat', 'sans-serif';
+    width: 8em;
+    padding: 10px 10px;
+    font-size: 20px;
+    filter: brightness(100%);
+    transition: all 0.4s ease-in-out;
+    border: 1px solid #000000b5;
+}
+
+.buy-button:hover {
+    filter: brightness(95%);
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.09);
+}
+
+#buy-button-price-1 {
+    background-color: #fcce09;
+}
+
+#buy-button-price-2 {
+    background-color: #fefeff;
+    border: 3px solid #2c2c2c
+}
+
+@media screen and (max-width: 1280px) {
+    #img-ready-or-not {
+        max-width: none;
+        width: auto;
+        transform: translateX(7%) scale(1.1);
+    }
+    #img-sea-of-thieves {
+        max-width: none;
+        width: auto;
+        transform: translateX(-15%) scale(0.7);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #img-ready-or-not {
+        max-width: none;
+        width: auto;
+        transform: translateX(6%) scale(1.2);
+    }
+    #img-sea-of-thieves {
+        max-width: none;
+        width: auto;
+        transform: translateX(-18%) scale(0.7);
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #img-ready-or-not {
+        max-width: none;
+        width: auto;
+        transform: translateX(6%) scale(1.2);
+    }
+    #img-sea-of-thieves {
+        max-width: none;
+        width: auto;
+        transform: translateX(-19%) scale(0.7);
+    }
+}
+
+@media screen and (max-width: 625px) {
+    #img-ready-or-not {
+        max-width: none;
+        width: auto;
+        transform: translateX(-1%) scale(1.1);
+    }
+    #img-sea-of-thieves {
+        max-width: none;
+        width: auto;
+        transform: translateX(-23%) scale(0.6);
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #img-ready-or-not {
+        max-width: none;
+        width: auto;
+        transform: translateX(-7%) scale(1);
+    }
+    #img-sea-of-thieves {
+        max-width: none;
+        width: auto;
+        transform: translateX(-27%) scale(0.5);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #img-ready-or-not {
+        max-width: none;
+        width: auto;
+        transform: translateX(8%) scale(1.4);
+    }
+
+    #img-sea-of-thieves {
+        max-width: none;
+        width: auto;
+        transform: translateX(-16%) scale(0.7);
+    }
+
+    .price-button{
+        font-size: 15px;
+    }
+}
+
+#buy-button-price-3 {
+    background-color: #ffffff33;
+    color: #ffffff;
+}
+
+#buy-button-price-4 {
+
+}
+
+#buy-button-price-5 {
+    background-color: #d5a245;
+}
+
+#buy-button-title-1 {
+    background-color: #fcce09ed;
+}
+
+#buy-button-title-2 {
+    background-color: #ffffff;
+    border: 3px solid #2c2c2c
+}
+
+#buy-button-title-3 {
+    background-color: #ffffff33;
+    color: white;
+}
+
+#buy-button-title-4 {
+
+}
+
+#buy-button-title-5 {
+    background-color: #d5a245;
+}
+
+.slider-container {
+    max-width: 1228px;
+    padding: 0 15px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90px 90px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    display: none;
+}
+
+.swiper-button-prev {
+    background-image: url("/static/main/img/structure/slider-arrow-2.svg");
+    left: -90px;
+    width: 90px;
+    height: 90px;
+    border: white;
+    transition: all 0.15s ease-in-out;
+}
+
+.swiper-button-next {
+    background-image: url("/static/main/img/structure/slider-arrow-1.svg");
+    right: -90px;
+    width: 90px;
+    height: 90px;
+    border: white;
+    transition: all 0.15s ease-in-out;
+}
+
+.swiper-button-next:hover {
+    opacity: 0.9;
+}
+
+.swiper-button-prev:hover {
+    opacity: 0.9;
+}
+
+.slider-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.slider-buttons {
+    display: flex;
+    align-items: center;
+}

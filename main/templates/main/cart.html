@@ -1,0 +1,149 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block bar %}
+    <div class="menu-content-game" id="menu-content">
+        <div class="menu-content-container">
+            <div class="menu-content-sections">
+                <div class="menu-content-item-game" id="menu-content-item-new" data-url="{% url 'index' %}#zagalovok-new">Новинки</div>
+                <div class="menu-content-item-game" id="menu-content-item-editors-choice" data-url="{% url 'index' %}#zagalovok-editors-choice">Наш выбор</div>
+                <div class="menu-content-item-game" id="menu-content-item-popular" data-url="{% url 'index' %}#zagalovok-popular">Популярное</div>
+            </div>
+        </div>
+    </div>
+    <div class="menu-content-index-mobile" id="menu-content-mobile">
+        <div class="menu-content-mobile-container">
+            <div class="menu-content-mobile-sections">
+                <div class="sidebar" id="sidebar">
+                    <div class="sidebar-container">
+                        <div class="sidebar-item">
+                            <a href="{% url 'catalog' %}">
+                                <span class="sidebar-item-title">
+                                    Весь каталог
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Популярное
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Новинки
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Выбор редакции
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="{% url 'reviews' %}">
+                                <span class="sidebar-item-title">
+                                    Отзывы
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="cart-page">
+        <div class="cart-page-container">
+            <h1>Корзина</h1>
+            {% if cart %}
+                <div id="cart-items" class="cart-items">
+                    {% for game_id, item in cart.items %}
+                        <div class="cart-item">
+                            <div class="cart-item-image">
+                                <img src="{{ item.product_image }}" alt="{{ item.title }}">
+                            </div>
+                            <div class="cart-item-info">
+                                <span class="cart-item-title">{{ item.title }}</span>
+                                <span class="cart-item-price">{{ item.price }}₽</span>
+                            </div>
+                            <button class="cart-item-remove" data-game-id="{{ game_id }}" aria-label="Удалить товар">&times;</button>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Фиксируем этот блок внизу -->
+                <div class="cart-footer">
+                    <p id="total-price" class="total-price">Общая стоимость: {{ total_price }}₽</p>
+                    <div class="cart-page-buttons">
+                        <a href="{% url 'checkout' %}" id="checkout-link" class="checkout-btn">Оформить заказ</a>
+                        <button id="clear-cart-btn" class="clear-cart-btn">
+                            <span>Очистить корзину</span>
+                            <img src="{% static 'main/img/structure/basket-icon.svg' %}" style="height: 1.1em;padding: 0 0 1px 2px;">
+                        </button>
+                    </div>
+                </div>
+            {% else %}
+                    <p id="empty-cart-message">Ваша корзина пуста</p>
+                {% endif %}
+        </div>
+    </div>
+
+
+    <script>
+        // Обработчик для очистки корзины
+        document.getElementById('clear-cart-btn')?.addEventListener('click', function () {
+            fetch("{% url 'clear_cart' %}", {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}", // CSRF токен для защиты
+                    "Content-Type": "application/json"
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    // Очищаем содержимое корзины, сохраняя заголовок
+                    document.querySelector('.cart-page').innerHTML = `
+                        <div class="cart-page-container">
+                            <h1>Корзина</h1>
+                            <p id="empty-cart-message">Ваша корзина пуста</p>
+                        </div>
+                    `;
+
+                    // Обновляем иконку корзины
+                    updateCartIconAndCount(0);
+                } else {
+                    alert("Не удалось очистить корзину.");
+                }
+            })
+            .catch(error => console.error("Ошибка:", error));
+        });
+
+        // Функция обновления иконки и счётчика корзины
+        function updateCartIconAndCount(itemCount) {
+            const cartIcon = document.getElementById('cart-icon'); // Иконка корзины
+            const cartHeadNum = document.querySelector('.cart_head_num'); // Счётчик количества товаров
+
+            // Выбираем иконку для корзины
+            cartIcon.src = `/static/main/img/structure/cart-${itemCount > 4 ? 0 : itemCount}.svg`;
+
+            // Логика отображения счётчика
+            if (itemCount > 4) {
+                cartHeadNum.style.display = 'block'; // Показываем счётчик
+                cartHeadNum.innerText = itemCount;  // Устанавливаем количество товаров
+            } else {
+                cartHeadNum.style.display = 'none'; // Скрываем счётчик
+            }
+        }
+    </script>
+
+{% endblock %}
+
+

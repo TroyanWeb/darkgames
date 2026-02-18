@@ -1,0 +1,642 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'main/css/slider-screenshot/swiper.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/slider-screenshot/default-styles.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/slider-screenshot/slider.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/jquery-ui.css' %}">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- fancybox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+    <!-- fancybox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+{% endblock %}
+
+{% block bar %}
+    <div class="menu-content-game" id="menu-content">
+        <div class="menu-content-container">
+            <div class="menu-content-sections">
+                <div class="menu-content-item-game" id="menu-content-item-new" data-url="{% url 'index' %}#zagalovok-new">Новинки</div>
+                <div class="menu-content-item-game" id="menu-content-item-editors-choice" data-url="{% url 'index' %}#zagalovok-editors-choice">Наш выбор</div>
+                <div class="menu-content-item-game" id="menu-content-item-popular" data-url="{% url 'index' %}#zagalovok-popular">Популярное</div>
+            </div>
+        </div>
+    </div>
+    <div class="menu-content-index-mobile" id="menu-content-mobile">
+        <div class="menu-content-mobile-container">
+            <div class="menu-content-mobile-sections">
+                <div class="sidebar" id="sidebar">
+                    <div class="sidebar-container">
+                        <div class="sidebar-item">
+                            <a href="{% url 'catalog' %}">
+                                <span class="sidebar-item-title">
+                                    Весь каталог
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Популярное
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Новинки
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Выбор редакции
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="{% url 'reviews' %}">
+                                <span class="sidebar-item-title">
+                                    Отзывы
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="content-container">
+        <div class="breadcrumbs">
+            <div class="breadcrumb-section">
+                <a href="/">Главная</a>
+            </div>
+            <span style="color: white;">–</span>
+            <div class="breadcrumb-section">
+                <a href="/catalog">Каталог</a>
+            </div>
+            <span style="color: white;">–</span>
+            <div class="breadcrumb-selected">
+                <a href="">{{ game.title }}</a>
+            </div>
+        </div>
+        <div class="game-details-container">
+            <div class="game-info">
+                <div class="game-info-container1">
+                    <img class="game-image" src="{{ game.product_image.url }}">
+                    <div class="game-title" id="game-title">
+                        <span class="word-animation">{{ game.title }}</span>
+                    </div>
+                </div>
+                <div class="game-info-container2">
+                    <div> Активация: <span>{{game.activation}}</span></div>
+                    <div> Регион: <span>{{game.region}}</span></div>
+                    <div> Жанр:
+                        <span>
+                            {% if game.genre == 'action' %}
+                                Экшен
+                            {% elif game.genre == 'shooter' %}
+                                Шутер
+                            {% elif game.genre == 'strategy' %}
+                                Стратегия
+                            {% elif game.genre == 'indie' %}
+                                Инди
+                            {% elif game.genre == 'adventure' %}
+                                Приключение
+                            {% elif game.genre == 'simulator' %}
+                                Симулятор
+                            {% elif game.genre == 'role-playing' %}
+                                Ролевая игра
+                            {% elif game.genre == 'fighting' %}
+                                Файтинг
+                            {% elif game.genre == 'sandbox' %}
+                                Песочница
+                            {% elif game.genre == 'rpg' %}
+                                RPG
+                            {% elif game.genre == 'survival' %}
+                                Выживание
+                            {% elif game.genre == 'horror' %}
+                                Хоррор
+                            {% elif game.genre == 'casual' %}
+                                Казуальная
+                            {% endif %}
+                        </span>
+                        <span>
+                            {% if game.genre_1 == 'action' %}
+                                | Экшен
+                            {% elif game.genre_1 == 'shooter' %}
+                                | Шутер
+                            {% elif game.genre_1 == 'strategy' %}
+                                | Стратегия
+                            {% elif game.genre_1 == 'indie' %}
+                                | Инди
+                            {% elif game.genre_1 == 'adventure' %}
+                                | Приключение
+                            {% elif game.genre_1 == 'simulator' %}
+                                | Симулятор
+                            {% elif game.genre_1 == 'role-playing' %}
+                                | Ролевая игра
+                            {% elif game.genre_1 == 'fighting' %}
+                                | Файтинг
+                            {% elif game.genre_1 == 'sandbox' %}
+                                | Песочница
+                            {% elif game.genre_1 == 'rpg' %}
+                                | RPG
+                            {% elif game.genre_1 == 'survival' %}
+                                | Выживание
+                            {% elif game.genre_1 == 'horror' %}
+                                | Хоррор
+                            {% elif game.genre_1 == 'casual' %}
+                                | Казуальная
+                            {% endif %}
+                        </span>
+                        <span>
+                            {% if game.genre_2 == 'action' %}
+                                | Экшен
+                            {% elif game.genre_2 == 'shooter' %}
+                                | Шутер
+                            {% elif game.genre_2 == 'strategy' %}
+                                | Стратегия
+                            {% elif game.genre_2 == 'indie' %}
+                                | Инди
+                            {% elif game.genre_2 == 'adventure' %}
+                                | Приключение
+                            {% elif game.genre_2 == 'simulator' %}
+                                | Симулятор
+                            {% elif game.genre_2 == 'role-playing' %}
+                                | Ролевая игра
+                            {% elif game.genre_2 == 'fighting' %}
+                                | Файтинг
+                            {% elif game.genre_2 == 'sandbox' %}
+                                | Песочница
+                            {% elif game.genre_2 == 'rpg' %}
+                                | RPG
+                            {% elif game.genre_2 == 'survival' %}
+                                | Выживание
+                            {% elif game.genre_2 == 'horror' %}
+                                | Хоррор
+                            {% elif game.genre_2 == 'casual' %}
+                                | Казуальная
+                            {% endif %}
+                        </span>
+                        <span>
+                            {% if game.genre_3 == 'action' %}
+                                | Экшен
+                            {% elif game.genre_3 == 'shooter' %}
+                                | Шутер
+                            {% elif game.genre_3 == 'strategy' %}
+                                | Стратегия
+                            {% elif game.genre_3 == 'indie' %}
+                                | Инди
+                            {% elif game.genre_3 == 'adventure' %}
+                                | Приключение
+                            {% elif game.genre_3 == 'simulator' %}
+                                | Симулятор
+                            {% elif game.genre_3 == 'role-playing' %}
+                                | Ролевая игра
+                            {% elif game.genre_3 == 'fighting' %}
+                                | Файтинг
+                            {% elif game.genre_3 == 'sandbox' %}
+                                | Песочница
+                            {% elif game.genre_3 == 'rpg' %}
+                                | RPG
+                            {% elif game.genre_3 == 'survival' %}
+                                | Выживание
+                            {% elif game.genre_3 == 'horror' %}
+                                | Хоррор
+                            {% elif game.genre_3 == 'casual' %}
+                                | Казуальная
+                            {% endif %}
+                        </span>
+                        <span>
+                            {% if game.genre_4 == 'action' %}
+                                | Экшен
+                            {% elif game.genre_4 == 'shooter' %}
+                                | Шутер
+                            {% elif game.genre_4 == 'strategy' %}
+                                | Стратегия
+                            {% elif game.genre_4 == 'indie' %}
+                                | Инди
+                            {% elif game.genre_4 == 'adventure' %}
+                                | Приключение
+                            {% elif game.genre_4 == 'simulator' %}
+                                | Симулятор
+                            {% elif game.genre_4 == 'role-playing' %}
+                                | Ролевая игра
+                            {% elif game.genre_4 == 'fighting' %}
+                                | Файтинг
+                            {% elif game.genre_4 == 'sandbox' %}
+                                | Песочница
+                            {% elif game.genre_4 == 'rpg' %}
+                                | RPG
+                            {% elif game.genre_4 == 'survival' %}
+                                | Выживание
+                            {% elif game.genre_4 == 'horror' %}
+                                | Хоррор
+                            {% elif game.genre_4 == 'casual' %}
+                                | Казуальная
+                            {% endif %}
+                        </span>
+                    </div>
+                    <div> Издатель: <span>{{ game_publishers }}</span></div>
+                    <div> Разработчик: <span>{{ game_developers }}</span></div>
+                    <div> Дата выхода: <span>{{ game_release_date }}</span></div>
+                </div>
+            </div>
+            <div class="purchase-details">
+                <div class="purchase-info-container1">
+                    <div class="purchase-info-container1-title">
+                        Издание
+                    </div>
+                    <div class="purchase-info-container1-edition">
+                        <button class="purchase-info-container1-button">
+                            Standard
+                        </button>
+                    </div>
+                    <div class="content-game-description-container1-availability-and-sell">
+                        <div class="content-game-description-container1-availability">
+                            {% if game.num_keys > 0 %}
+                                <div class="in-stock-badge">
+                                    <img class="content-game-description-container1-availability-check" src="{% static 'main/img/structure/check.svg' %}">
+                                    <span class="content-game-description-container1-availability-title">В наличии</span>
+                                </div>
+                            {% else %}
+                                <div class="out-of-stock-badge">
+                                    <img class="content-game-description-container1-availability-check" src="{% static 'main/img/structure/not-check.svg' %}">
+                                    <span class="content-game-description-container1-availability-title">Нет в наличии</span>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="content-game-description-container1-sell-and-card-button">
+                            <div class="content-game-description-container1-sell">
+                                {{ game.price }}₽
+                            </div>
+                            <div class="game-description-cart-button" data-game-id="{{ game.id }}">
+                                {% if request.session.cart and game.id|stringformat:"s" in request.session.cart %}
+                                    <div class="cart-button-in-cart-container">
+                                        <a href="{% url 'cart' %}" class="cart-button-in-cart">В корзине</a>
+                                    </div>
+                                {% else %}
+                                    <div class="cart-button-buy-container">
+                                        <button class="cart-button-buy">Купить</button>
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="content-game-description-container1-card-button-mobile" id="content-game-buy-mobile">
+                        <button>Купить</button>
+                    </div>
+                </div>
+                <div class="purchase-info-container2">
+                    {% if game.ea_link %}
+                        <a href="{{ game.ea_link }}" class="purchase-info-container-2-a" target="_blank">
+                            <img class="purchase-info-container2-img" src="{% static 'main/img/structure/ea.svg' %}">
+                        </a>
+                    {% endif %}
+                    {% if game.rockstar_link %}
+                        <a href="{{ game.rockstar_link }}" class="purchase-info-container-2-a" target="_blank">
+                            <img class="purchase-info-container2-img" src="{% static 'main/img/structure/rockstar-games-launcher.svg' %}">
+                        </a>
+                    {% endif %}
+                    {% if game.steam_link %}
+                        <a href="{{ game.steam_link }}" class="purchase-info-container-2-a" target="_blank">
+                            <img class="purchase-info-container2-img" src="{% static 'main/img/structure/steam.svg' %}">
+                        </a>
+                    {% endif %}
+                    {% if game.gog_link %}
+                        <a href="{{ game.gog_link }}" class="purchase-info-container-2-a" target="_blank">
+                            <img class="purchase-info-container2-img" src="{% static 'main/img/structure/gog.svg' %}">
+                        </a>
+                    {% endif %}
+                    {% if game.epic_games_link %}
+                        <a href="{{ game.epic_games_link }}" class="purchase-info-container-2-a" target="_blank">
+                            <img class="purchase-info-container2-img" src="{% static 'main/img/structure/epic-games.svg' %}">
+                        </a>
+                    {% endif %}
+                    {% if game.ubisoft_link %}
+                        <a href="{{ game.ubisoft_link }}" class="purchase-info-container-2-a" target="_blank">
+                            <img class="purchase-info-container2-img" src="{% static 'main/img/structure/ubisoft.svg' %}">
+                        </a>
+                    {% endif %}
+                    {% if game.vk_play_link %}
+                        <a href="{{ game.vk_play_link }}" class="purchase-info-container-2-a" target="_blank">
+                            <img class="purchase-info-container2-img" src="{% static 'main/img/structure/vk-play.svg' %}">
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="purchase-info-container3">
+                    <div class="slider-container-screenshot">
+                        <div class="slider-top">
+                            <span class="slider-top-title">Скриншоты</span>
+                            <div class="slider-buttons">
+                                <button class="swiper-button-prev"></button>
+                                <button class="swiper-button-next"></button>
+                            </div>
+                        </div>
+                        <div class="swiper-container" id="swiper-container-screen">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide card">
+                                    <a href="{{ game.image_screen_1.url }}" data-fancybox="gallery">
+                                        <img data-src="{{ game.image_screen_1.url }}" class="swiper-lazy">
+                                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <a href="{{ game.image_screen_2.url }}" data-fancybox="gallery">
+                                        <img data-src="{{ game.image_screen_2.url }}" class="swiper-lazy">
+                                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <a href="{{ game.image_screen_3.url }}" data-fancybox="gallery">
+                                        <img data-src="{{ game.image_screen_3.url }}" class="swiper-lazy">
+                                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <a href="{{ game.image_screen_4.url }}" data-fancybox="gallery">
+                                        <img data-src="{{ game.image_screen_4.url }}" class="swiper-lazy">
+                                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <a href="{{ game.image_screen_5.url }}" data-fancybox="gallery">
+                                        <img data-src="{{ game.image_screen_5.url }}" class="swiper-lazy">
+                                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <a href="{{ game.image_screen_6.url }}" data-fancybox="gallery">
+                                        <img data-src="{{ game.image_screen_6.url }}" class="swiper-lazy">
+                                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <a href="{{ game.image_screen_7.url }}" data-fancybox="gallery">
+                                        <img data-src="{{ game.image_screen_7.url }}" class="swiper-lazy">
+                                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <a href="{{ game.image_screen_8.url }}" data-fancybox="gallery">
+                                        <img data-src="{{ game.image_screen_8.url }}" class="swiper-lazy">
+                                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <a href="{{ game.image_screen_9.url }}" data-fancybox="gallery">
+                                        <img data-src="{{ game.image_screen_9.url }}" class="swiper-lazy">
+                                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+                <script src="{% static 'main/js/swiper.min.js' %}"></script>
+                <script src="{% static 'main/js/slider-screenshot.js' %}"></script>
+                <div class="purchase-info-container-4">
+                    <div class="game-description">
+                        <div id="game_area_description" class="game_area_description">
+                            <div class="game_area_description-container">
+                                <div class="game_area_description-title" id="description-title-active">Описание</div>
+                                <div class="game_area_description-title" id="activation-title">Как активировать?</div>
+                            </div>
+                            <div class="game_area_description_text">
+                                {{ game.description|safe }}
+                            </div>
+                            <div class="game-about-activation">
+                                <div class="about-activation-text">
+                                    {% if game.activation == 'Steam' %}
+                                        1. Зайдите в Steam <br>
+                                        Откройте клиент Steam на вашем компьютере или загрузите его с <a href="https://store.steampowered.com/about/" class="about-activation-text-item-1"> официального сайта Steam.</a><br>
+                                        <br>
+                                        2. Войдите в свой аккаунт или создайте новый <br>
+                                            Если у вас уже есть учётная запись Steam, введите свои данные для входа. Если вы новый пользователь, создайте аккаунт, следуя инструкциям на экране. <br>
+                                        <br>
+                                        <div style="display: flex; justify-content: center">
+                                            <video width="70%" height="auto" autoplay muted loop style="border-radius: 10px;">
+                                                <source src="{% static 'main/videos/activation-steam-login.mp4' %}" type="video/mp4">
+                                                Ваш браузер не поддерживает HTML5 видео.
+                                            </video>
+                                        </div>
+                                        <br>
+                                        3. Откройте меню "Игры" <br>
+                                            В верхней части окна Steam найдите вкладку "Игры" и выберите "Активировать в Steam...". <br>
+                                        <br>
+                                        <div style="display: flex; justify-content: center">
+                                            <video width="70%" height="auto" autoplay muted loop style="border-radius: 10px;">
+                                                <source src="{% static 'main/videos/activation-steam.mp4' %}" type="video/mp4">
+                                                Ваш браузер не поддерживает HTML5 видео.
+                                            </video>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        4. Ввод ключа <br>
+                                            Введите ключ продукта, который вы хотите активировать, и нажмите "Далее".
+                                        <br>
+                                        <br>
+                                        5. Принятие пользовательского соглашения
+                                        <br>
+                                            Если это ваш первый раз активировать ключ или вы активируете ключ для нового региона, вам могут попросить принять пользовательское соглашение. <br>
+                                        <br>
+                                        6. Успешная активация
+                                        <br>
+                                            После успешной активации ключа вы получите уведомление о том, что игра добавлена в вашу библиотеку игр Steam. <br>
+                                        <br>
+                                        7. Загрузка игры
+                                        <br>
+                                            Теперь вы можете загрузить и начать играть в свою новую игру, открыв меню "Библиотека" в Steam и выбрав игру из списка. <br>
+                                    {% elif game.activation == 'Ubisoft' %}
+                                        1. Зайдите в Ubisoft
+                                        <br>
+                                            Откройте клиент Ubisoft на вашем компьютере или загрузите его с <a href="https://ubisoftconnect.com/ru-RU/" class="about-activation-text-item-1"> официального сайта Ubisoft.</a><br>
+                                        <br>
+                                        2. Войдите в свой аккаунт или создайте новый
+                                        <br>
+                                            Если у вас уже есть учётная запись Ubisoft, введите свои данные для входа. Если вы новый пользователь, создайте аккаунт, следуя инструкциям на экране. <br>
+                                        <br>
+                                        3. Перейдите в раздел активации ключа
+                                        <br>
+                                            После входа в свою учетную запись найдите раздел "Активация ключа". Обычно это можно найти в разделе "Учетная запись" или "В боковом меню".
+                                        <br>
+                                        <br>
+                                        <div style="display: flex; justify-content: center">
+                                            <video width="70%" height="auto" autoplay muted loop style="border-radius: 10px;">
+                                                <source src="{% static 'main/videos/activation-ubisoft_1.mp4' %}" type="video/mp4">
+                                                Ваш браузер не поддерживает HTML5 видео.
+                                            </video>
+                                        </div>
+                                        <br>
+                                        4. Введите ключ
+                                        <br>
+                                            Введите ключ активации в соответствующее поле. Обычно ключ состоит из букв и цифр и разделен на группы по 4 символа.
+                                        <br>
+                                        <br>
+                                        5. Подтвердите активацию
+                                        <br>
+                                            После ввода ключа нажмите на кнопку "Активировать".
+                                        <br>
+                                        <br>
+                                        6. Дождитесь подтверждения
+                                        <br>
+                                            После активации ключа система Ubisoft должна подтвердить успешную активацию. Вам может быть предложено скачать или добавить активированный продукт в вашу библиотеку игр.
+                                        <br>
+                                        <br>
+                                        7. Загрузите игру (если необходимо):
+                                        <br>
+                                            Если вы активировали ключ для игры, которую еще не скачали, вам может быть предложено скачать ее с помощью клиента Ubisoft (например, Ubisoft Connect).
+                                        <br>
+                                        <br>
+                                        8. Начните играть:
+                                        <br>
+                                            После загрузки игры вы можете начать играть!
+                                        <br>
+                                    {% elif game.activation == 'Rockstar' %}
+                                        1. Зайдите в Rockstar Games Launcher
+                                        <br>
+                                           Откройте клиент Rockstar Games Launcher на вашем компьютере или загрузите его с <a href="https://socialclub.rockstargames.com/rockstar-games-launcher" class="about-activation-text-item-1"> официального сайта Rockstar Games.</a>
+                                        <br>
+                                        <br>
+                                        2. Войдите в свой аккаунт или создайте новый
+                                        <br>
+                                           Введите данные для входа в ваш аккаунт Rockstar. Если у вас нет учетной записи, создайте её, следуя инструкциям на экране.
+                                        <br>
+                                        <br>
+                                        3. Откройте меню активации
+                                        <br>
+                                           В главном меню клиента нажмите на иконку профиля в правом верхнем углу и выберите пункт "Активировать код".
+                                        <br>
+                                        <br>
+                                        4. Введите ключ активации
+                                        <br>
+                                           В появившемся окне введите ключ продукта, который вы хотите активировать, и нажмите кнопку "Активировать".
+                                        <br>
+                                        <br>
+                                        5. Примите условия пользовательского соглашения
+                                        <br>
+                                           Если это ваш первый раз активировать ключ или вы активируете ключ для нового региона, вам предложат принять условия пользовательского соглашения.
+                                        <br>
+                                        <br>
+                                        6. Успешная активация
+                                        <br>
+                                           После успешной активации вам будет выдано уведомление о том, что игра добавлена в вашу библиотеку.
+                                        <br>
+                                        <br>
+                                        7. Загрузка игры
+                                        <br>
+                                           Перейдите в раздел "Игры" в Rockstar Games Launcher, найдите вашу новую игру в библиотеке и начните её загрузку.
+                                        <br>
+                                    {% elif game.activation == 'EA' %}
+                                    1. Зайдите в EA App (ранее Origin)
+                                       <br>Откройте клиент EA App на вашем компьютере или скачайте его с <a href="https://www.ea.com/ru-ru/ea-app#downloads" class="about-activation-text-item-1">официального сайта EA.</a>
+                                       <br><br>
+
+                                    2. Войдите в свою учётную запись EA или создайте новую
+                                       <br>Введите данные для входа в ваш аккаунт EA. Если у вас ещё нет учётной записи, создайте её, следуя инструкциям на экране.
+                                       <br><br>
+
+                                    3. Откройте меню активации
+                                       <br>В левом нижнем углу окна EA App нажмите на кнопку с изображением меню (три горизонтальные линии) и выберите "Погасить код".
+                                       <br><br>
+
+                                    4. Введите ключ активации
+                                       <br>В появившемся окне введите ключ продукта, который вы хотите активировать, и нажмите "Далее".
+                                       <br><br>
+
+                                    5. Примите условия пользовательского соглашения
+                                       <br>Если это ваш первый раз активировать ключ, вам предложат принять условия пользовательского соглашения EA.
+                                       <br><br>
+
+                                    6. Успешная активация
+                                       <br>После успешной активации вы получите уведомление, что игра добавлена в вашу библиотеку EA App.
+                                       <br><br>
+
+                                    7. Загрузка игры
+                                       <br>Перейдите в раздел "Библиотека" в EA App, найдите вашу новую игру в списке и начните её загрузку.
+                                       <br>
+                                    {% elif game.activation == 'GOG' %}
+                                    1. Зайдите в GOG Galaxy
+                                       <br>Откройте клиент GOG Galaxy на вашем компьютере или скачайте его с <a href="https://www.gog.com/galaxy" class="about-activation-text-item-1">официального сайта GOG.</a>
+                                       <br><br>
+
+                                    2. Войдите в свою учётную запись GOG или создайте новую
+                                       <br>Введите данные для входа в ваш аккаунт GOG. Если у вас нет учётной записи, создайте её, следуя инструкциям на экране.
+                                       <br><br>
+
+                                    3. Откройте меню активации
+                                       <br>В верхнем левом углу клиента нажмите на кнопку "Настройки" (шестеренка), выберите "Активировать код".
+                                       <br><br>
+
+                                    4. Введите ключ активации
+                                       <br>В появившемся окне введите ключ продукта, который вы хотите активировать, и нажмите "Далее".
+                                       <br><br>
+
+                                    5. Примите условия пользовательского соглашения
+                                       <br>Если это ваш первый раз активировать ключ, вам предложат принять условия пользовательского соглашения GOG.
+                                       <br><br>
+
+                                    6. Успешная активация
+                                       <br>После успешной активации вы получите уведомление, что игра добавлена в вашу библиотеку GOG Galaxy.
+                                       <br><br>
+
+                                    7. Загрузка игры
+                                       <br>Перейдите в раздел "Библиотека" в GOG Galaxy, найдите вашу новую игру в списке и начните её загрузку.
+                                       <br>
+                                    {% elif game.activation == 'VK Play' %}
+                                    1. Зайдите в VK Play
+                                       <br>Откройте сайт VK Play в вашем браузере или скачайте клиент с <a href="https://vkplay.ru/about/promo" class="about-activation-text-item-1">официального сайта VK Play.</a>
+                                       <br><br>
+
+                                    2. Войдите в свою учётную запись или создайте новую
+                                       <br>Введите данные для входа в ваш аккаунт VK Play через VK ID. Если у вас нет учётной записи, создайте её, следуя инструкциям на экране.
+                                       <br><br>
+
+                                    3. Откройте меню активации
+                                       <br>В верхней части экрана нажмите на ваш аватар и в выпадающем меню выберите "Активация ключа".
+                                       <br><br>
+
+                                    4. Введите ключ активации
+                                       <br>В появившемся окне введите ключ продукта, который вы хотите активировать, и нажмите "Активировать".
+                                       <br><br>
+
+                                    5. Примите условия пользовательского соглашения
+                                       <br>Если это ваш первый раз активировать ключ, вам предложат принять условия пользовательского соглашения VK Play.
+                                       <br><br>
+
+                                    6. Успешная активация
+                                       <br>После успешной активации вы получите уведомление, что игра добавлена в вашу библиотеку VK Play.
+                                       <br><br>
+
+                                    7. Загрузка игры
+                                       <br>Перейдите в раздел "Библиотека" в VK Play, найдите вашу новую игру и начните её загрузку.
+                                       <br>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts_end %}
+    <script type="module" src="{% static 'main/js/font_effects/main_effects.js' %}"></script>
+    <script src="{% static 'main/js/script.js' %}"></script>
+    <script src="{% static 'main/js/jquery-ui.js' %}"></script>
+    <script src="{% static 'main/js/showing-screenshots.js' %}"></script>
+{% endblock %}

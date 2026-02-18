@@ -1,0 +1,105 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block bar %}
+    <div class="menu-content-index" id="menu-content">
+        <div class="menu-content-container">
+            <div class="menu-content-sections">
+                <div class="menu-content-item" id="menu-content-item-new" data-url="{% url 'index' %}#zagalovok-new">Новинки</div>
+                <div class="menu-content-item" id="menu-content-item-editors-choice" data-url="{% url 'index' %}#zagalovok-editors-choice">Наш выбор</div>
+                <div class="menu-content-item" id="menu-content-item-popular" data-url="{% url 'index' %}#zagalovok-popular">Популярное</div>
+            </div>
+        </div>
+    </div>
+    <div class="menu-content-index-mobile" id="menu-content-mobile">
+        <div class="menu-content-mobile-container">
+            <div class="menu-content-mobile-sections">
+                <div class="sidebar" id="sidebar">
+                    <div class="sidebar-container">
+                        <div class="sidebar-item">
+                            <a href="{% url 'catalog' %}">
+                                <span class="sidebar-item-title">
+                                    Весь каталог
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Популярное
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Новинки
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Выбор редакции
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sidebar-item">
+                            <a href="#">
+                                <span class="sidebar-item-title">
+                                    Контакты
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="about-section-principles">
+        <h2 class="about-title-principles">Наши Принципы</h2>
+
+        <div class="principle-item">
+            <h3 class="principle-title">1. Честность и прозрачность</h3>
+            <p class="principle-text">Мы не предлагаем фиктивных скидок и не завышаем цены, чтобы потом их "снижать". В DarkGames цены всегда актуальны и честные. Мы делаем скидки только там, где действительно можем снизить стоимость, и всегда сообщаем вам о настоящих акциях.</p>
+        </div>
+
+        <div class="principle-item">
+            <h3 class="principle-title">2. Гарантия лучшей цены</h3>
+            <p class="principle-text">Наши клиенты могут отправить нам ссылку на другую цену в интернете, и если она ниже, мы сделаем скидку. Мы ценим доверие и стараемся быть наиболее выгодным и честным магазином для вас.</p>
+        </div>
+
+        <div class="principle-item">
+            <h3 class="principle-title">3. Работаем официально</h3>
+            <p class="principle-text">DarkGames — это официальный магазин с зарегистрированным ИП, что гарантирует легальность и безопасность ваших покупок. Все наши клиенты получают чеки, и мы придерживаемся законодательства, чтобы вам было комфортно и спокойно покупать у нас.</p>
+        </div>
+
+        <div class="principle-item">
+            <h3 class="principle-title">4. Справедливые цены без наценок на тренды</h3>
+            <p class="principle-text">Независимо от того, насколько новая или популярная игра, в DarkGames вы всегда увидите справедливую и конкурентоспособную цену. Мы не завышаем цены на релизы, потому что верим, что игры должны быть доступными для всех.</p>
+        </div>
+
+        <div class="principle-item">
+            <h3 class="principle-title">5. Клиентоориентированность</h3>
+            <p class="principle-text">Наша поддержка всегда на связи и готова ответить на ваши вопросы или помочь с решением любых вопросов. Мы ценим вашу обратную связь и всегда работаем над улучшением сервиса.</p>
+        </div>
+
+        <div class="goal-section">
+            <h3 class="goal-title">Наша цель — поддержка инди-разработчиков</h3>
+            <p class="goal-text">В DarkGames мы верим, что независимые разработчики вносят особую душу и уникальность в игровой мир. Наша миссия — не только предоставлять лучшие игры, но и помогать тем, кто стоит за их созданием.</p>
+
+            <h4 class="goal-subtitle">Развитие инди-сцены</h4>
+            <p class="goal-text">Когда DarkGames достигнет стабильного уровня развития, мы начнем инвестировать в инди-проекты, поддерживая новые и оригинальные идеи. Каждая покупка в нашем магазине помогает нам приблизиться к этой цели и вносит вклад в развитие независимой игровой индустрии.</p>
+
+            <h4 class="goal-subtitle">Взгляд в будущее</h4>
+            <p class="goal-text">Мы хотим создать сообщество, где геймеры и разработчики могут вместе развивать мир игр. В будущем мы планируем открыть свою студию, чтобы воплощать уникальные проекты и поддерживать творческие начинания. DarkGames — это больше, чем просто магазин, это место, где рождаются новые игровые вселенные.</p>
+
+            <p class="goal-highlight"><strong>Станьте частью нашего пути и поддержите создание новых игровых проектов вместе с нами!</strong></p>
+        </div>
+    </div>
+
+
+{% endblock %}
