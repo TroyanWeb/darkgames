@@ -127,7 +127,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-ALLOWED_HOSTS = ['*']  # временно для теста
+ALLOWED_HOSTS = ['https://darkgames.up.railway.app']  # временно для теста
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
