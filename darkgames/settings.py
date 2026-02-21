@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,18 +20,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
+# SECURITY WARNING: don't run with debug turned on in production!
+
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+
+ALLOWED_HOSTS = ['*']
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
+SECRET_KEY = os.environ.get('SECRET_KEY')
+if not SECRET_KEY:
+    if DEBUG:
+        SECRET_KEY = 'django-insecure--l50&pxysao(her+g&ih)_t&e+m54(e)tam78o98*36=+_#(4a'
+    else:
+        raise ValueError("SECRET_KEY не установлен! Добавь в Railway Variables.")
 
-SECRET_KEY = 'django-insecure--l50&pxysao(her+g&ih)_t&e+m54(e)tam78o98*36=+_#(4a'
+if not SECRET_KEY:
+    raise ValueError("SECRET_KEY не установлен! Добавь в Railway Variables.")
 
 
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -60,7 +66,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'darkgames.urls'
 
@@ -130,13 +135,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / 'media'          # ← для Volume на Railway
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Default primary key field type
@@ -165,9 +170,9 @@ EMAIL_HOST = 'smtp.yandex.ru'  # SMTP-сервер Яндекса
 EMAIL_PORT = 465  # Порт для SSL
 EMAIL_USE_TLS = False  # TLS не нужен при использовании SSL
 EMAIL_USE_SSL = True  # Используем SSL
-EMAIL_HOST_USER = 'sereginnsk@yandex.ru'  # Ваша почта на Яндексе
-EMAIL_HOST_PASSWORD = 'cniouzuolcwtxmts'  # Пароль приложения (см. ниже)
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # Отправитель по умолчанию
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'sereginnsk@yandex.ru')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'cniouzuolcwtxmts')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # ====================== БАЗА ДАННЫХ ======================
 # Локально будет SQLite, на Railway — PostgreSQL
