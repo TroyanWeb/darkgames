@@ -778,6 +778,7 @@ body {
 .cart-item-title {
     padding-top: 5px;
     font-size: 19px;
+    width: 7em;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2; /* Ограничение на 2 строки */
